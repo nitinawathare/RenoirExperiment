@@ -1,3 +1,5 @@
+import csv
+
 
 def main():
     file = '/home/shashi/readWrite'
@@ -10,7 +12,7 @@ def main():
         for line in f:
             data = line.split(',')
             if data[0] == 'Block_num ':
-                blockrecord[int(data[1])-1] = (tx, contx, comp, store)
+                blockrecord[int(data[1])-1] = (tx, contx, store, comp)
                 tx = 0
                 contx=0
                 comp = 0
@@ -29,12 +31,11 @@ def main():
             else:
                 comp = comp + 1
                 check="comp"
-    print("BlockNo. ", "Contract_Tx ", "simple_Tx ","Other_inst ", "Storage_inst")
-    for x, y in blockrecord.items():
-        print(x, " ", end='')
-        for value in y:
-            print(value," ", end='')
-        print("\n")
+
+    with open("/home/shashi/data.csv", "w") as f:
+        writer = csv.DictWriter(f, fieldnames=["Blocknum", "SimpleTrx", "contractTrx", "Sopcode", "otherOpcode"])
+        writer.writeheader()
+        csv.writer(f).writerows((k,) + v for k, v in blockrecord.items())
 
 
 if __name__ == "__main__":
