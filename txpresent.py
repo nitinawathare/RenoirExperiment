@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 from pathlib import Path
 
 
@@ -8,17 +9,20 @@ def main():
     prev="0x00000"
     file = pd.read_csv("testData/blocks/data.csv",sep=',', header=None)
     filedata = file.iloc[1:, :].values
+    
     for i in range(800, 801):
         blockhash = str(filedata[i][2])
         if prev==blockhash:
             continue
         else:
-            print(blockhash)
+            print(blockhash, filedata[i][1])
             prev = blockhash
         # get block data i.e transaction present in block
             j = Path("testData/blockdata/" + "\""+blockhash+"\"" + ".csv")
 
             if j.is_file():
+                if os.stat(j).st_size == 0:
+                    continue
                 block = pd.read_csv(j, sep=',', header=None)
                 block = block.iloc[:,0].values.T
             else:
