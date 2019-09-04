@@ -4,6 +4,7 @@ def main():
     sstore = []
     check=0
     last =0
+    txcount=0
     filename = '/home/shashi/renoir_exp/testData/readWrite'
     file = ""
     with open(filename) as f:
@@ -12,42 +13,46 @@ def main():
             if data[0] == 'Block_num ':
                 if last == 1:
                     with open(file, 'a+') as f:
-                        f.write("SLOAD:\n")
                         for item in sload:
-                            f.write(item)
+                            f.write("SLOAD:,"+item)
                             f.write("\n")
-                        f.write("SSTORE:\n")
+                        f.write("\n")
                         for st in sstore:
-                            f.write(st)
+                            f.write("SSTORE:,"+st)
                             f.write("\n")
+                        f.write("\n")
                         sload.clear()
                         sstore.clear()
+                        f.write("Txcount, ")
+                        f.write(str(txcount))
+                        txcount = 0
+
                 block = data[1]
                 print(block)
                 file = "/home/shashi/renoir_exp/block/" + block
                 last=1
                 check=0
             elif data[0] == 'Hash ':
+                txcount=txcount+1
                 hash = data[1]
                 if check==0:
                     with open(file, 'a+') as f:
-                        f.write("Hash: "+ hash)
-                        f.write("\n")
+                        f.write("hash:,"+ hash)
                     check=1
                 elif check == 1:
                         with open(file, 'a+') as f:
-                            f.write("SLOAD:\n")
                             for item in sload:
-                                f.write(item)
+                                f.write("SLOAD:,"+item)
+                                f.write("\n")
                             f.write("\n")
-                            f.write("SSTORE:\n")
                             for data in sstore:
-                                f.write(data)
+                                f.write("SSTORE:,"+data)
                                 f.write("\n")
                             f.write("\n")
                             sload.clear()
                             sstore.clear()
-                            f.write("hash:" + hash)
+                            f.write("hash:," + hash)
+
 
             elif data[0] == 'SLOAD':
                 sload.append(data[1])
