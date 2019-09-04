@@ -1,4 +1,3 @@
-
 class AdjNode:
     def __init__(self, data):
         self.vertex = data
@@ -44,7 +43,7 @@ if __name__ == "__main__":
     check = 0
     indexdata = []
     contract = 0
-    file = "/home/shashi/renoir_exp/block/8433693"
+    file = "/home/shashi/renoir_exp/block/8433696"
     with open(file, 'r') as f:
         line = list(f)[-1]
         lastline = line.split(',')
@@ -80,6 +79,11 @@ if __name__ == "__main__":
             elif data[0] == "SSTORE:":
                 sstore.append(data[1])
                 checklast = "sstore"
+    a = sload[:]
+    index = dependency(a, total_store)
+    if index != 'nan':
+        graph.add_edge(index, count)
+    indexdata.append(index)
     tx = 0
     print(indexdata)
     for k in indexdata:
@@ -88,4 +92,3 @@ if __name__ == "__main__":
     print("dependent trx.",tx)
     print("total contract trx.", contract)
     graph.print_graph()
-
