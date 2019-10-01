@@ -26,7 +26,7 @@ def main(path):
 			peerSimilarityCount ={}
 			data = line.split(' ')
 			if len(data) < 3:
-                                continue
+                continue
 			if "+" in data[0] or "+" in data[1] or "+" in data[2] or "+" in data[3]:
 				#print("1**********************")
 				continue
@@ -34,8 +34,8 @@ def main(path):
 				continue
 			if data[0]=="" or data[1]=="" or data[2]=="" or data[3]=="":
 				continue
-			if  not data[2].startswith("2019"):
-				continue
+			# if  not data[2].startswith("2019"):
+			# 	continue
 
 			# print("block : "+data[1])
 			# print("*************************")
@@ -54,12 +54,12 @@ def main(path):
 			if int(data[0]) not in range(8502515, 8502535):
 				continue
 			if previousBlockNumber == data[0]:
-                                continue
+                continue
 
 			previousBlockNumber = data[0]
 			#print(line)
-			utc_time = datetime.strptime(data[2]+" "+data[3][:-3], "%Y-%m-%d %H:%M:%S.%f")
-			epoch_time = (utc_time - datetime(1970, 1, 1)).total_seconds()
+			# utc_time = datetime.strptime(data[2]+" "+data[3][:-3], "%Y-%m-%d %H:%M:%S.%f")
+			epoch_time = data[2]#(utc_time - datetime(1970, 1, 1)).total_seconds()
 			while(1):
 				last_pos = txReceivedFp.tell()
 				tx = txReceivedFp.readline()
@@ -70,23 +70,23 @@ def main(path):
 				#print("tx : "+tx)
 				#print("21**********************"+data1[0]+" "+data1[1]+" "+data1[2])
 				
-				if len(data1) < 7:
-                                	continue
+				# if len(data1) < 7:
+				#   continue
 				#print("21**********************"+data1[0]+" "+data1[1]+" "+data1[2])
 				if "+" in data1[0] or "+" in data1[1] or "+" in data1[2]:
-        	                        #print("2**********************"+data1[0]+" "+data1[1]+" "+data1[2])
-	                                continue
+                    #print("2**********************"+data1[0]+" "+data1[1]+" "+data1[2])
+                    continue
 				if "x" in data1[1] or "x" in data1[2]:
 					continue
 				if data1[0]=="" or data1[1]=="" or data1[2]=="":
 					continue
-				if  not data1[1].startswith("2019"):
-					continue
+				# if  not data1[1].startswith("2019"):
+				# 	continue
 				#try:
 				if len(data1[2].split('.')[1])>6:
 					data1[2] = data1[2][:-3]
-				utc_time1 = datetime.strptime(data1[1]+" "+data1[2], "%Y-%m-%d %H:%M:%S.%f")
-				epoch_time1 = (utc_time1 - datetime(1970, 1, 1)).total_seconds()
+				# utc_time1 = datetime.strptime(data1[1]+" "+data1[2], "%Y-%m-%d %H:%M:%S.%f")
+				epoch_time1 = data1[1]#(utc_time1 - datetime(1970, 1, 1)).total_seconds()
 				#print(data1[6])
 				#print(data1[0],end='')
 				#print(" ",end='')
@@ -98,7 +98,7 @@ def main(path):
 					#print("received transaction : "+tx.split(" ")[0])
 					# if data[3] in peerTransListDict.keys():
 						# peerTransListDict[data[3]] = []
-					peerTransListDict[data1[6]].append(tx.split(" ")[0])
+					peerTransListDict[data1[2]].append(data1[0])
 				else:
 					txReceivedFp.seek(last_pos)
 					break
