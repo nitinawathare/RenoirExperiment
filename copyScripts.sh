@@ -63,16 +63,19 @@ do
 		ssh -n -i quorum.pub ubuntu@$REMOTE_SERVER "sudo rm -r /ssd/renoirData/" &
 
 	elif [ "$1" = "changeOwner" ]; then
-		ssh -n -i quorum.pub ubuntu@$REMOTE_SERVER "sudo chown -R ubuntu /ssd/renoirData/" &
+		ssh -n -i quorum.pub ubuntu@$REMOTE_SERVER "sudo chown -R ubuntu /ssd/renoirData/; sudo chmod 777 /ssd/renoirData/;" &
 
 	elif [ "$1" = "copySsh" ]; then
-		scp -i quorum.pub /home/nitin14/.ssh/id_rsa ubuntu@$REMOTE_SERVER:/home/ubuntu/.ssh &
+		scp -i quorum.pub /home/nitin14/RenoirExperiment/id_rsa ubuntu@$REMOTE_SERVER:/home/ubuntu/.ssh/ &
 
 	elif [ "$1" = "copyMakeGeth" ]; then
 		scp -i quorum.pub /home/nitin14/RenoirExperiment/makeGeth.sh ubuntu@$REMOTE_SERVER:/home/ubuntu/ &
 
 	elif [ "$1" = "copyBasrc" ]; then
 		scp -i quorum.pub /home/nitin14/RenoirExperiment/.bashrc ubuntu@$REMOTE_SERVER:/home/ubuntu/ &
+
+	elif [ "$1" = "go" ]; then
+		scp -i quorum.pub /home/nitin14/RenoirExperiment/installGo.sh ubuntu@$REMOTE_SERVER:/home/ubuntu/ &
 
 	fi
 
