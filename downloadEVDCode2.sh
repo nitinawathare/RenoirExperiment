@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd gitRepoEVD
-cd EVD-Prototype
-git checkout evd2
-git pull origin evd2
+cd gitRepoRenoir
+cd go-renoir
+git checkout Renoir_Implementation
+git pull origin Renoir_Implementation
 
 make clean
 #echo "making code************************************"

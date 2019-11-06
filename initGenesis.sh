@@ -37,18 +37,18 @@ while read REMOTE_SERVER
 do
 	#echo staticJsonFiles/static.json$var 	
 	# echo $REMOTE_SERVER
-	#scp -i quorum2.key staticJsonFiles/static.json$var ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoEVD/.ethereum/static-nodes.json &
+	#scp -i quorum2.key staticJsonFiles/static.json$var ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoRenoir/.ethereum/static-nodes.json &
 	
 
-	#scp -i quorum2.key staticJsonFiles/static.json$var"_"$var ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoEVD/.ethereum1/static-nodes.json &
+	#scp -i quorum2.key staticJsonFiles/static.json$var"_"$var ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoRenoir/.ethereum1/static-nodes.json &
 	
-	#scp -i quorum2.key genesis.json ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoEVD/ &
-	#scp -i quorum2.key /home/nitin14/NewEVD/EVD-Prototype/scripts/automate2.py ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoEVD/EVD-Prototype/scripts/automate2.py
+	#scp -i quorum2.key genesis.json ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoRenoir/ &
+	#scp -i quorum2.key /home/nitin14/NewEVD/EVD-Prototype/scripts/automate2.py ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoRenoir/EVD-Prototype/scripts/automate2.py
 	#echo "processing *********"$REMOTE_SERVER
 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "pkill -f automate2.py;"
-	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/chaindata/"
-	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/lightchaindata/"
-	hashPowerVar=$(sed  "$((var+1))q;d" /home/sourav/EVD-Expt/hashPower)
+	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/chaindata/"
+	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/lightchaindata/"
+	hashPowerVar=$(sed  "$((var+1))q;d" /home/nitin14/RenoirExperiment/hashPower)
 	# echo "hashPower $hashPowerVar"
 	#echo "new hashpower calculated is "
 
@@ -71,29 +71,29 @@ do
 	# to run EVD-Prototype
 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "
 	# 	nohup killall geth; 
-	# 	sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/chaindata/; 
-	# 	sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/lightchaindata/; 
-	# 	sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/nodes/;
-	# 	sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/ethash/;
-	# 	sudo rm /home/ubuntu/gitRepoEVD/.ethereum/geth/LOCK;
-	# 	sudo rm /home/ubuntu/gitRepoEVD/.ethereum/geth/transactions.rlp;
-	# 	nohup geth --datadir /home/ubuntu/gitRepoEVD/.ethereum --k 10 init /home/ubuntu/gitRepoEVD/genesis.json; nohup geth --datadir /home/ubuntu/gitRepoEVD/.ethereum --rpc --rpcport 22000 --port 21000 --verbosity 3 --gcmode archive --hashpower $hashPowerVar --k 10 --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoEVD/passwords.txt" > /home/sourav/EVD-Expt/Logs/log$var.txt 2>&1 &
+	# 	sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/chaindata/; 
+	# 	sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/lightchaindata/; 
+	# 	sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/nodes/;
+	# 	sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/ethash/;
+	# 	sudo rm /home/ubuntu/gitRepoRenoir/.ethereum/geth/LOCK;
+	# 	sudo rm /home/ubuntu/gitRepoRenoir/.ethereum/geth/transactions.rlp;
+	# 	nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum --k 10 init /home/ubuntu/gitRepoRenoir/genesis.json; nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum --rpc --rpcport 22000 --port 21000 --verbosity 3 --gcmode archive --hashpower $hashPowerVar --k 10 --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoRenoir/passwords.txt" > /home/sourav/EVD-Expt/Logs/log$var.txt 2>&1 &
 
 	# to run go-ethereum
 	nohup ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "
-		sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/chaindata/; 
-		sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/lightchaindata/; 
-		sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/nodes/;
-		sudo rm -r /home/ubuntu/gitRepoEVD/.ethereum/geth/ethash/;
-		sudo rm /home/ubuntu/gitRepoEVD/.ethereum/geth/LOCK;
-		sudo rm /home/ubuntu/gitRepoEVD/.ethereum/geth/transactions.rlp;
-		nohup geth --datadir /home/ubuntu/gitRepoEVD/.ethereum init /home/ubuntu/gitRepoEVD/genesis.json; nohup geth --datadir /home/ubuntu/gitRepoEVD/.ethereum --rpc --rpcport 22000 --port 21000 --nodiscover --interarrival 15 --k 7 --verbosity 4 --gcmode archive --cache $cacheVar --hashpower $hashPowerVar --behavior $behavior --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoEVD/passwords.txt > /home/ubuntu/gitRepoEVD/log.txt 2>&1" &
+		sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/chaindata/; 
+		sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/lightchaindata/; 
+		sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/nodes/;
+		sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/ethash/;
+		sudo rm /home/ubuntu/gitRepoRenoir/.ethereum/geth/LOCK;
+		sudo rm /home/ubuntu/gitRepoRenoir/.ethereum/geth/transactions.rlp;
+		nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum init /home/ubuntu/gitRepoRenoir/genesis.json; nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum --rpc --rpcport 22000 --port 21000 --nodiscover --interarrival 15 --verbosity 4 --gcmode archive --cache $cacheVar --hashpower $hashPowerVar --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoRenoir/passwords.txt > /home/ubuntu/gitRepoRenoir/log.txt 2>&1" &
 	
 	cacheVar=2048
 	behavior=0
 	#echo "after starting ************ "$REMOTE_SERVER
 	#sleep 2s
-	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; nohup geth --datadir /home/ubuntu/gitRepoEVD/.ethereum --rpc --rpcport 22001 --port 21000 --verbosity 4 --gcmode archive --hashpower 7.1 --k 10 --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoEVD/passwords.txt" > log$var.txt 2>&1 &
+	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum --rpc --rpcport 22001 --port 21000 --verbosity 4 --gcmode archive --hashpower 7.1 --k 10 --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoRenoir/passwords.txt" > log$var.txt 2>&1 &
 	# echo "after start************ "$REMOTE_SERVER
 	var=$((var+1))
 	#echo $var

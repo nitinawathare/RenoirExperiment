@@ -2,7 +2,7 @@
 
 killall geth
 
-cd gitRepoEVD
+cd gitRepoRenoir
 
 sudo rm -r .ethereum
 sudo rm -r .ethereum1

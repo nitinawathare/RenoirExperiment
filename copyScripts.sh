@@ -56,6 +56,12 @@ do
 	elif [ "$1" = "copyData" ]; then
 		ssh -n -i quorum.pub ubuntu@$REMOTE_SERVER "sudo mv renoirData data_$(date +%d-%m-%Y_%H:%M:%S)" &
 
+	elif [ "$1" = "script" ]; then
+		# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "sudo rm -r gitRepoRenoir; mkdir gitRepoRenoir" 
+	 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "sudo rm -r gitRepoEVD" 
+ 		echo "copy"
+ 		scp -i quorum2.key addressRead.py staticJsonRead.py staticJsonRead1.py passwords.txt installGo.sh downloadEVDCode.sh downloadEVDCode2.sh setupEthereum.sh ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoRenoir/&
+
 	elif [ "$1" = "createDataFolder" ]; then
 		ssh -n -i quorum.pub ubuntu@$REMOTE_SERVER "sudo mkdir /ssd/renoirData/; sudo mkdir /ssd/renoirData/blocks; sudo mkdir /ssd/renoirData/transactions" &
 
@@ -66,7 +72,7 @@ do
 		ssh -n -i quorum.pub ubuntu@$REMOTE_SERVER "sudo chown -R ubuntu /ssd/renoirData/; sudo chmod 777 /ssd/renoirData/;" &
 
 	elif [ "$1" = "copySsh" ]; then
-		scp -i quorum.pub /home/nitin14/RenoirExperiment/id_rsa ubuntu@$REMOTE_SERVER:/home/ubuntu/.ssh/ &
+		scp -i quorum2.key /home/nitin14/RenoirExperiment/id_rsa ubuntu@$REMOTE_SERVER:/home/ubuntu/.ssh/ &
 
 	elif [ "$1" = "copyMakeGeth" ]; then
 		scp -i quorum.pub /home/nitin14/RenoirExperiment/makeGeth.sh ubuntu@$REMOTE_SERVER:/home/ubuntu/ &
