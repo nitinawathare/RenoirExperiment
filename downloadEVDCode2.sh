@@ -2,7 +2,7 @@
 
 cd gitRepoRenoir
 cd go-renoir
-git checkout Renoir_Implementation
+git checkout origin/Renoir_Implementation
 git pull origin Renoir_Implementation
 
 make clean

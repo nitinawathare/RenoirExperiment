@@ -18,7 +18,7 @@ git clone git+ssh://git@github.com/sourav1547/go-renoir.git
 
 cd go-renoir
 
-git checkout origin/Renoir_Implementation
+git checkout origin/dataCollection1
 
 make clean
 #echo "making code************************************"

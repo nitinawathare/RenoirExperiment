@@ -4,7 +4,7 @@ SERVER_LIST=ipList
 while read REMOTE_SERVER
 do
 	if [ "$1" = "deploy" ]; then
-		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoEVD/deployContract.py"&
+		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoRenoir/deployContract.py"&
 
 	elif [ "$1" = "send" ]; then
 		nohup ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoEVD/sendTransaction.py"&

@@ -124,14 +124,14 @@ def read_address_file(file_path):
     return addresses
 
 def connectWeb3():
-    return Web3(IPCProvider('/home/ubuntu/gitRepoEVD/.ethereum/geth.ipc', timeout=75000))
+    return Web3(IPCProvider('/home/ubuntu/gitRepoRenoir/.ethereum/geth.ipc', timeout=75000))
 
 def deploySortContract(contract_source_path, w3, account):
     compiled_sol = compile_source_file(contract_source_path)
     contract_id, contract_interface1 = compiled_sol.popitem()
     tx_hash = w3.eth.contract(
             abi=contract_interface1['abi'],
-            bytecode=contract_interface1['bin']).constructor(100).transact({'txType':"0x0", 'from':account, 'gas':20000000})
+            bytecode=contract_interface1['bin']).constructor(150).transact({'txType':"0x0", 'from':account, 'gas':20000000})
     return tx_hash
 
 def deployMatrixContract(contract_source_path, w3, account):
@@ -161,9 +161,9 @@ def deployContracts(w3, account):
     receipt2 = w3.eth.getTransactionReceipt(tx_hash2)
     receipt3 = w3.eth.getTransactionReceipt(tx_hash3)
 
-    while w3.eth.blockNumber < 10 :
+    while w3.eth.blockNumber < 70 :
         time.sleep(4)
-    time.sleep(30)
+    time.sleep(130)
 
     receipt1 = w3.eth.getTransactionReceipt(tx_hash1)
     receipt2 = w3.eth.getTransactionReceipt(tx_hash2)
@@ -179,13 +179,13 @@ def deployContracts(w3, account):
         print("empty:{0}".format(receipt3['contractAddress']))
 
 
-sort_source_path = '/home/ubuntu/gitRepoEVD/cpuheavy.sol'
-# sort_source_path = '/home/ubuntu/gitRepoEVD/sortMemory.sol'
+sort_source_path = '/home/ubuntu/gitRepoRenoir/cpuheavy.sol'
+# sort_source_path = '/home/ubuntu/gitRepoRenoir/sortMemory.sol'
 
-matrix_source_path = '/home/ubuntu/gitRepoEVD/matrixMultiplication.sol'
-# matrix_source_path = '/home/ubuntu/gitRepoEVD/matrixMemory.sol'
+matrix_source_path = '/home/ubuntu/gitRepoRenoir/matrixMultiplication.sol'
+# matrix_source_path = '/home/ubuntu/gitRepoRenoir/matrixMemory.sol'
 
-empty_source_path = '/home/ubuntu/gitRepoEVD/emptyLoop.sol'
+empty_source_path = '/home/ubuntu/gitRepoRenoir/emptyLoop.sol'
 
 
 w3 = connectWeb3()
