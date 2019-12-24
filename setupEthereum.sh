@@ -11,7 +11,7 @@ mkdir .ethereum
 mkdir .ethereum1
 
 
-IPAddress="$(ifconfig eth0| grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')"
+IPAddress="$(ifconfig ens3| grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')"
 echo $IPAddress
 
 nohup geth --datadir .ethereum/ 2>> .ethereum/setup.log &

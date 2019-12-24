@@ -7,16 +7,16 @@ do
 		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoRenoir/deployContract.py"&
 
 	elif [ "$1" = "send" ]; then
-		nohup ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoEVD/sendTransaction.py"&
+		nohup ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoRenoir/sendTransaction.py"&
 	
 	elif [ "$1" = "deployevd" ]; then
-		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoEVD/deployEVDContract.py"&
+		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoRenoir/deployEVDContract.py"&
 
 	elif [ "$1" = "sendevd" ]; then
-		nohup ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoEVD/sendEVDTransaction.py"&
+		nohup ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "nohup python3 /home/ubuntu/gitRepoRenoir/sendEVDTransaction.py"&
 	
 	elif [ "$1" = "stop" ]; then
-		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "python3 /home/ubuntu/gitRepoEVD/stopExperiment.py"&
+		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "python3 /home/ubuntu/gitRepoRenoir/stopExperiment.py"&
 	else
 		echo "
 			'deploy'		To run deployContract.py
