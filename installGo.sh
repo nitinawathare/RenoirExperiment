@@ -11,5 +11,7 @@ sudo mv go /usr/local/go
 rm -f $GOREL
 export PATH=$PATH:/usr/local/go/bin
 echo 'PATH=$PATH:/usr/local/go/bin' >> /home/$USER/.bashrc
+echo $PATH
+# chmod a+x /home/$USER/.bashrc PS1='$ ' source /home/$USER/.bashrc 
 # . /home/ubuntu/.bashrc
 cd ..

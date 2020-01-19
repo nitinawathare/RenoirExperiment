@@ -151,14 +151,14 @@ def read_address_file(file_path):
     return addresses
 
 def connectWeb3():
-    return Web3(IPCProvider('/home/ubuntu/gitRepoEVD/.ethereum/geth.ipc', timeout=100000))
+    return Web3(IPCProvider('/home/ubuntu/gitRepoRenoir/.ethereum/geth.ipc', timeout=100000))
 
 def deploySortContract(contract_source_path, w3, account):
     compiled_sol = compile_source_file(contract_source_path)
     contract_id, contract_interface1 = compiled_sol.popitem()
     tx_hash = w3.eth.contract(
             abi=contract_interface1['abi'],
-            bytecode=contract_interface1['bin']).constructor(35).transact({'txType':"0x0", 'from':account, 'gas':11607685})
+            bytecode=contract_interface1['bin']).constructor(150).transact({'txType':"0x0", 'from':account, 'gas':11607685})
     return tx_hash
 
 def deployMatrixContract(contract_source_path, w3, account):
@@ -176,7 +176,7 @@ def deployEmptyContract(contract_source_path, w3, account):
     curBlock = w3.eth.getBlock('latest')
     tx_hash = w3.eth.contract(
             abi=contract_interface3['abi'],
-            bytecode=contract_interface3['bin']).constructor(4).transact({'txType':"0x0", 'from':account, 'gas':11709158})
+            bytecode=contract_interface3['bin']).constructor(400).transact({'txType':"0x0", 'from':account, 'gas':11709158})
     return tx_hash
 
 def deployContracts(w3, account):
@@ -196,7 +196,7 @@ def deployContracts(w3, account):
     receipt2 = w3.eth.getTransactionReceipt(tx_hash2)
     receipt3 = w3.eth.getTransactionReceipt(tx_hash3)
 
-    file1 = open('/home/ubuntu/gitRepoEVD/contractAddress',"w")
+    file1 = open('/home/ubuntu/gitRepoRenoir/contractAddress',"w")
     if receipt1 is not None:
         print("sort:{0}".format(receipt1['contractAddress']))
         file1.write("sort:{0}".format(receipt1['contractAddress']))
@@ -213,13 +213,13 @@ def deployContracts(w3, account):
         file1.write("\n")
 
 
-sort_source_path = '/home/ubuntu/gitRepoEVD/sortMemory.sol'
-#sort_source_path = '/home/ubuntu/gitRepoEVD/sortMemory.sol'
+sort_source_path = '/home/ubuntu/gitRepoRenoir/cpuheavy.sol'
+#sort_source_path = '/home/ubuntu/gitRepoRenoir/sortMemory.sol'
 
-matrix_source_path = '/home/ubuntu/gitRepoEVD/matrixMemory.sol'
-#matrix_source_path = '/home/ubuntu/gitRepoEVD/matrixMemory.sol'
+matrix_source_path = '/home/ubuntu/gitRepoRenoir/matrixMultiplication.sol'
+#matrix_source_path = '/home/ubuntu/gitRepoRenoir/matrixMemory.sol'
 
-empty_source_path = '/home/ubuntu/gitRepoEVD/emptyLoop.sol'
+empty_source_path = '/home/ubuntu/gitRepoRenoir/emptyLoop.sol'
 
 
 w3 = connectWeb3()

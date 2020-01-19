@@ -87,7 +87,7 @@ do
 		sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/ethash/;
 		sudo rm /home/ubuntu/gitRepoRenoir/.ethereum/geth/LOCK;
 		sudo rm /home/ubuntu/gitRepoRenoir/.ethereum/geth/transactions.rlp;
-		nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum init /home/ubuntu/gitRepoRenoir/genesis.json; nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum --rpc --rpcport 22000 --port 21000 --nodiscover --interarrival 15 --verbosity 4 --gcmode archive --cache $cacheVar --hashpower $hashPowerVar --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoRenoir/passwords.txt > /home/ubuntu/gitRepoRenoir/log.txt 2>&1" &
+		nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum init /home/ubuntu/gitRepoRenoir/genesis.json; nohup geth --datadir /home/ubuntu/gitRepoRenoir/.ethereum --rpc --rpcport 22000 --port 21000 --nodiscover --interarrival 15 --verbosity 4 --maxpeers 50  --gcmode archive --cache $cacheVar --hashpower $hashPowerVar --allow-insecure-unlock --unlock 0 --password /home/ubuntu/gitRepoRenoir/passwords.txt > /home/ubuntu/gitRepoRenoir/log.txt 2>&1" &
 	
 	cacheVar=2048
 	behavior=0

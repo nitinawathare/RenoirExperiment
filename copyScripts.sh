@@ -99,11 +99,11 @@ do
 		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "sudo mv renoirData data_$(date +%d-%m-%Y_%H:%M:%S)" &
 
 	elif [ "$1" = "script" ]; then
-		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "sudo rm -r gitRepoRenoir; mkdir gitRepoRenoir" 
+		# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "sudo rm -r gitRepoRenoir; mkdir gitRepoRenoir" 
 	 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "sudo rm -r gitRepoRenoir"
-	 	ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "cd gitRepoRenoir; sudo mkdir blocks; mkdir transactions; mkdir transactionsRW" &
+	 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "cd gitRepoRenoir; sudo mkdir blocks; mkdir transactions; mkdir transactionsRW" &
  		echo "copy"
- 		scp -i quorum2.key addressRead.py staticJsonRead.py staticJsonRead1.py passwords.txt installGo.sh downloadEVDCode.sh downloadEVDCode2.sh setupEthereum.sh ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoRenoir/&
+ 		scp -i quorum2.key addressRead.py staticJsonRead.py staticJsonRead1.py passwords.txt installGo.sh downloadEVDCode.sh downloadEVDCode2.sh setupEthereum.sh installpy3.sh ubuntu@$REMOTE_SERVER:/home/ubuntu/gitRepoRenoir/&
 
 	elif [ "$1" = "createDataFolder" ]; then
 		ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "sudo mkdir /ssd/renoirData/; sudo mkdir /ssd/renoirData/blocks; sudo mkdir /ssd/renoirData/transactions" &
