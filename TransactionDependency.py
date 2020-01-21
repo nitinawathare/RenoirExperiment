@@ -1,45 +1,61 @@
-
+import os.path
 import os
 from pathlib import Path
 
 
 def main():
 
-	p = 1
+	p = 40
 	adjList = []
-	blockfile = "/home/shashi/RenoirExperiment/gitRepoRenoir/blocks/"
+	blockfile = "/home/shashi/RenoirExperiment/gitRepoRenoir/Block1/"
 	# with open(blockfile) as bf:
 	for block in os.listdir(blockfile):
 		# for block in bf and i in range(10):
 		
 		blockInfo = []
-		file = Path("/home/shashi/RenoirExperiment/gitRepoRenoir/blocks/"+block)
+		# Reading block one by one.....
+		file = '/home/shashi/RenoirExperiment/gitRepoRenoir/Block1/'+block
 		# print(file)
 		blockRead = []
 		blockWrite = []
-		if file.is_file():
-			
+
+		if Path(file).exists():
 			with open(file) as f:
 				for txnum, tl in enumerate(f):
-					txrw = block+"_"
+					tl = tl.rstrip('\n')
+					# txrw = block+"_"
 					# print(txrw)
-					rwfile = Path("/home/shashi/RenoirExperiment/gitRepoRenoir/transactionsRW/" + block+"_"+tl)
-					print(rwfile)
+					rwfile = str( '/home/shashi/RenoirExperiment/gitRepoRenoir/transactionsRW/'+str(block)+'_'+str(tl) )
+					# print(rwfile)
 					trRead = []
 					trWrite = []
-					if rwfile.is_file():
+					
+					if not Path(rwfile).exists():
+						print("file not exists")
+					else:
+						# print("file not exists")
+
+
 						with open(rwfile) as rw:
 							for data in rw:
 								mystring = data.split("_")
+								value = mystring[2].rstrip('\n')
 								if mystring[0] == "RD":
-									trRead.append((mystring[1], mystring[2]))
+									
+									trRead.append((mystring[1], value))
 								else:
-									trWrite.append((mystring[1], mystring[2]))
+									trWrite.append((mystring[1], value))
+						# for j in trRead:
+						# 	print(j)
+						# for k in trWrite:
+						# 	print(k)
+
 
 						check = 0
 						for i, e in reversed(list(enumerate(blockWrite))):
 							for j in trRead:
-								if j in i:
+							# 	print(j)
+								if j in e:
 									blockInfo.append((txnum, i))
 									check = 1
 									break
@@ -48,15 +64,18 @@ def main():
 								break
 						if check == 0:
 							blockInfo.append((txnum, "_" ))
-					# else:
-					# 	continue
+					blockWrite.append(trWrite)
+			# for j in blockWrit:
+			# 	print(j)
+			# 	print("\n")		
 			adjList.append(blockInfo)
 			blockInfo.clear()
 			
-		# else:
-		# 	continue
+		else:
+			continue
 		p = p+1
-		if(p == 10):
+		print("block done..........................")
+		if(p == 50):
 			break
 	for s in adjList:
 		print(*s) 
