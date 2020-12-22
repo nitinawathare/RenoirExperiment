@@ -151,7 +151,7 @@ def read_address_file(file_path):
     return addresses
 
 def connectWeb3():
-    return Web3(IPCProvider('/home/ubuntu/gitRepoRenoir/.ethereum/geth.ipc', timeout=100000))
+    return Web3(IPCProvider(sys.argv[1]+'/geth.ipc', timeout=100000))
 
 def deploySortContract(contract_source_path, w3, account):
     compiled_sol = compile_source_file(contract_source_path)
@@ -167,7 +167,7 @@ def deployMatrixContract(contract_source_path, w3, account):
     curBlock = w3.eth.getBlock('latest')
     tx_hash = w3.eth.contract(
             abi=contract_interface2['abi'],
-            bytecode=contract_interface2['bin']).constructor(4).transact({'txType':"0x0", 'from':account, 'gas':11758781})
+            bytecode=contract_interface2['bin']).constructor(8).transact({'txType':"0x0", 'from':account, 'gas':11758781})
     return tx_hash
 
 def deployEmptyContract(contract_source_path, w3, account):
@@ -188,15 +188,15 @@ def deployContracts(w3, account):
     receipt2 = w3.eth.getTransactionReceipt(tx_hash2)
     receipt3 = w3.eth.getTransactionReceipt(tx_hash3)
 
-    while w3.eth.blockNumber < 70 :
+    while w3.eth.blockNumber < 10 :
         time.sleep(4)
-    time.sleep(100)
+    time.sleep(5)
 
     receipt1 = w3.eth.getTransactionReceipt(tx_hash1)
     receipt2 = w3.eth.getTransactionReceipt(tx_hash2)
     receipt3 = w3.eth.getTransactionReceipt(tx_hash3)
 
-    file1 = open('/home/ubuntu/gitRepoRenoir/contractAddress',"w")
+    file1 = open(sys.argv[1]+'/contractAddress',"w")
     if receipt1 is not None:
         print("sort:{0}".format(receipt1['contractAddress']))
         file1.write("sort:{0}".format(receipt1['contractAddress']))
@@ -213,13 +213,13 @@ def deployContracts(w3, account):
         file1.write("\n")
 
 
-sort_source_path = '/home/ubuntu/gitRepoRenoir/cpuheavy.sol'
+sort_source_path = sys.argv[1]+'/../../cpuheavy.sol'
 #sort_source_path = '/home/ubuntu/gitRepoRenoir/sortMemory.sol'
 
-matrix_source_path = '/home/ubuntu/gitRepoRenoir/matrixMultiplication.sol'
+matrix_source_path = sys.argv[1]+'/../../matrixMultiplication.sol'
 #matrix_source_path = '/home/ubuntu/gitRepoRenoir/matrixMemory.sol'
 
-empty_source_path = '/home/ubuntu/gitRepoRenoir/emptyLoop.sol'
+empty_source_path = sys.argv[1]+'/../../emptyLoop.sol'
 
 
 w3 = connectWeb3()

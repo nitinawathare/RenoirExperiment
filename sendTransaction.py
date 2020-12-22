@@ -66,7 +66,7 @@ def compile_source_file(file_path):
 
 def sendSortTransaction(address):
     # contract_source_path = '/home/ubuntu/gitRepoEVD/sortMemory.sol'
-    contract_source_path = '/home/ubuntu/gitRepoEVD/cpuheavy.sol'
+    contract_source_path = sys.argv[1]+'/../../cpuheavy.sol'
     # contract_source_path = '/home/sourav/EVD-Expt/cpuheavy.sol'
 
     compiled_sol = compile_source_file(contract_source_path)
@@ -78,7 +78,7 @@ def sendSortTransaction(address):
 
 def sendMatrixTransaction(address):
     # contract_source_path = '/home/ubuntu/gitRepoEVD/matrixMemory.sol'
-    contract_source_path = '/home/ubuntu/gitRepoEVD/matrixMultiplication.sol'
+    contract_source_path = sys.argv[1]+'/../../matrixMultiplication.sol'
     # contract_source_path = '/home/sourav/EVD-Expt/matrixMultiplication.sol'
     compiled_sol = compile_source_file(contract_source_path)
     contract_id, contract_interface = compiled_sol.popitem()
@@ -88,7 +88,7 @@ def sendMatrixTransaction(address):
     tx_hash = sort_contract.functions.multiply().transact({'txType':"0x2", 'from':w3.eth.accounts[0], 'gas':4500000})
 
 def sendEmptyLoopTransaction(address):
-    contract_source_path = '/home/ubuntu/gitRepoEVD/emptyLoop.sol'
+    contract_source_path = sys.argv[1]+'/../../emptyLoop.sol'
     # contract_source_path = '/home/sourav/EVD-Expt/emptyLoop.sol'
     compiled_sol = compile_source_file(contract_source_path)
     contract_id, contract_interface = compiled_sol.popitem()

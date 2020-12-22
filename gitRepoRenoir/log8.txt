@@ -1,0 +1,176 @@
+DEBUG[12-19|01:58:32.924] Sanitizing Go's GC trigger               percent=50
+INFO [12-19|01:58:32.932] Maximum peer count                       ETH=50 LES=0 total=50
+INFO [12-19|01:58:32.932] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+DEBUG[12-19|01:58:32.932] FS scan times                            list=27.629µs set=3.138µs diff=2.273µs
+WARN [12-19|01:58:32.933] Found deprecated node list file /home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/static-nodes.json, please use the TOML config file instead. 
+INFO [12-19|01:58:32.934] Starting peer-to-peer node               instance=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+INFO [12-19|01:58:32.934] Allocated trie memory caches             clean=1024.00MiB dirty=0.00B
+INFO [12-19|01:58:32.934] Allocated cache and file handles         database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/chaindata cache=1024.00MiB handles=2048
+DEBUG[12-19|01:58:33.185] Chain freezer table opened               database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/chaindata/ancient table=headers items=0 size=0.00B
+DEBUG[12-19|01:58:33.235] Chain freezer table opened               database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/chaindata/ancient table=hashes  items=0 size=0.00B
+DEBUG[12-19|01:58:33.272] Chain freezer table opened               database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/chaindata/ancient table=bodies  items=0 size=0.00B
+DEBUG[12-19|01:58:33.321] Chain freezer table opened               database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/chaindata/ancient table=receipts items=0 size=0.00B
+DEBUG[12-19|01:58:33.346] Chain freezer table opened               database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/chaindata/ancient table=diffs    items=0 size=0.00B
+INFO [12-19|01:58:33.346] Opened ancient database                  database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/chaindata/ancient
+INFO [12-19|01:58:33.346] Initialised chain configuration          config="{ChainID: 2310 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: <nil> EIP155: 0 EIP158: 0 Byzantium: <nil> Constantinople: <nil>  Petersburg: <nil> Engine: unknown}"
+INFO [12-19|01:58:33.347] Disk storage enabled for ethash caches   dir=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth/ethash count=3
+INFO [12-19|01:58:33.347] Disk storage enabled for ethash DAGs     dir=/home/sourav/.ethash count=2
+INFO [12-19|01:58:33.347] Initialising Ethereum protocol           versions=[63] network=1 dbversion=<nil>
+WARN [12-19|01:58:33.347] Upgrade blockchain database version      from=<nil> to=7
+DEBUG[12-19|01:58:33.347] Current full block not old enough        number=0 hash=5ca4d0…dd3605 delay=90000
+INFO [12-19|01:58:33.440] Loaded most recent local header          number=0 hash=5ca4d0…dd3605 td=0 age=51y8mo2w
+INFO [12-19|01:58:33.440] Loaded most recent local full block      number=0 hash=5ca4d0…dd3605 td=0 age=51y8mo2w
+INFO [12-19|01:58:33.440] Loaded most recent local fast block      number=0 hash=5ca4d0…dd3605 td=0 age=51y8mo2w
+DEBUG[12-19|01:58:33.440] Reinjecting stale transactions           count=0
+INFO [12-19|01:58:33.440] Loaded local transaction journal         transactions=0 dropped=0
+INFO [12-19|01:58:33.440] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [12-19|01:58:33.453] Allocated fast sync bloom                size=1024.00MiB
+INFO [12-19|01:58:33.454] Initialized fast sync bloom              items=12 errorrate=0.000 elapsed=170.284µs
+DEBUG[12-19|01:58:33.454] Recalculated downloader QoS values       rtt=20s confidence=1.000 ttl=1m0s
+INFO [12-19|01:58:33.454] @nitin inside worker.go newworkch******************* 
+DEBUG[12-19|01:58:33.617] InProc registered                        namespace=admin
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=admin
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=debug
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=web3
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=txpool
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=debug
+DEBUG[12-19|01:58:33.618] InProc registered                        namespace=debug
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=personal
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=ethash
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=miner
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=eth
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=admin
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=debug
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=debug
+DEBUG[12-19|01:58:33.619] InProc registered                        namespace=net
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=admin
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=admin
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=debug
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=web3
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=txpool
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=debug
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=debug
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=personal
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=ethash
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=miner
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=eth
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=admin
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=debug
+DEBUG[12-19|01:58:33.619] IPC registered                           namespace=debug
+DEBUG[12-19|01:58:33.620] IPC registered                           namespace=net
+INFO [12-19|01:58:33.620] IPC endpoint opened                      url=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth.ipc
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=web3
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=eth
+DEBUG[12-19|01:58:33.620] HTTP registered                          namespace=net
+INFO [12-19|01:58:33.620] HTTP endpoint opened                     url=http://127.0.0.1:22008 cors= vhosts=localhost
+WARN [12-19|01:58:33.620] ------------------------------------------------------------------- 
+WARN [12-19|01:58:33.620] Referring to accounts by order in the keystore folder is dangerous! 
+WARN [12-19|01:58:33.620] This functionality is deprecated and will be removed in the future! 
+WARN [12-19|01:58:33.620] Please use explicit addresses! (can search via `geth account list`) 
+WARN [12-19|01:58:33.620] ------------------------------------------------------------------- 
+DEBUG[12-19|01:58:33.623] TCP listener up                          addr=[::]:21008
+INFO [12-19|01:58:33.624] New local node record                    seq=1 id=72510700707988f3 ip=127.0.0.1 udp=0 tcp=21008
+INFO [12-19|01:58:33.624] Started P2P networking                   self="enode://15290dc2a3805628de7f9313b13681aa41de06635d816d99fa5f7b10df9bf00f8dde641893584dd230de9ab5f48380ea6238e3c2531aea2e4a59a31439023904@127.0.0.1:21008?discport=0"
+DEBUG[12-19|01:58:33.624] Can't resolve node                       id=0xa88980         err="discovery is disabled"
+DEBUG[12-19|01:58:33.624] Can't resolve node                       id=0xa88980         err="discovery is disabled"
+DEBUG[12-19|01:58:33.629] Adding p2p peer                          id=fe46e51c8864c033 conn=staticdial addr=127.0.0.1:21007 peers=1 name=Geth/v1.9.1-stable/l...
+DEBUG[12-19|01:58:33.629] Adding p2p peer                          id=f6157811a1406b01 conn=staticdial addr=127.0.0.1:21003 peers=2 name=Geth/v1.9.1-stable/l...
+DEBUG[12-19|01:58:33.629] Ethereum peer connected                  id=f6157811a1406b01 conn=staticdial name=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+DEBUG[12-19|01:58:33.630] Adding p2p peer                          id=a8be18daa2f4f018 conn=staticdial addr=127.0.0.1:21001 peers=3 name=Geth/v1.9.1-stable/l...
+DEBUG[12-19|01:58:33.630] Ethereum peer connected                  id=a8be18daa2f4f018 conn=staticdial name=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+DEBUG[12-19|01:58:33.631] Ethereum peer connected                  id=fe46e51c8864c033 conn=staticdial name=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+DEBUG[12-19|01:58:33.631] Relaxed downloader QoS values            rtt=20s confidence=0.500 ttl=1m0s
+DEBUG[12-19|01:58:33.635] Relaxed downloader QoS values            rtt=20s confidence=0.333 ttl=1m0s
+DEBUG[12-19|01:58:33.635] Adding p2p peer                          id=944002025759bbfc conn=staticdial addr=127.0.0.1:21006 peers=4 name=Geth/v1.9.1-stable/l...
+DEBUG[12-19|01:58:33.636] Ethereum peer connected                  id=944002025759bbfc conn=staticdial name=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+DEBUG[12-19|01:58:33.636] Relaxed downloader QoS values            rtt=20s confidence=0.250 ttl=1m0s
+DEBUG[12-19|01:58:34.050] Adding p2p peer                          id=01fb48318aeedb38 conn=inbound    addr=127.0.0.1:36506 peers=5 name=Geth/v1.9.1-stable/l...
+DEBUG[12-19|01:58:34.050] Ethereum peer connected                  id=01fb48318aeedb38 conn=inbound    name=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+DEBUG[12-19|01:58:34.051] Relaxed downloader QoS values            rtt=20s confidence=0.200 ttl=1m0s
+DEBUG[12-19|01:58:34.356] Adding p2p peer                          id=d601b19c924e9433 conn=inbound    addr=127.0.0.1:36510 peers=6 name=Geth/v1.9.1-stable/l...
+DEBUG[12-19|01:58:34.356] Ethereum peer connected                  id=d601b19c924e9433 conn=inbound    name=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+DEBUG[12-19|01:58:34.357] Relaxed downloader QoS values            rtt=20s confidence=0.167 ttl=1m0s
+INFO [12-19|01:58:34.368] Unlocked account                         address=0xF3eF0464d3089649053739b028387de9d5EcDa33
+DEBUG[12-19|01:58:35.724] Couldn't add port mapping                proto=tcp extport=21008 intport=21008 interface="UPnP or NAT-PMP" err="no UPnP or NAT-PMP router discovered"
+DEBUG[12-19|01:58:53.454] Recalculated downloader QoS values       rtt=20s confidence=0.583 ttl=1m0s
+DEBUG[12-19|01:59:13.454] Recalculated downloader QoS values       rtt=20s confidence=0.792 ttl=1m0s
+DEBUG[12-19|01:59:33.355] Current full block not old enough        number=0 hash=5ca4d0…dd3605 delay=90000
+DEBUG[12-19|01:59:33.455] Recalculated downloader QoS values       rtt=20s confidence=0.896 ttl=1m0s
+DEBUG[12-19|01:59:37.268] Served rpc_modules                       reqid=1 t=55.788µs
+DEBUG[12-19|01:59:37.276] Served admin_peers                       reqid=2 t=314.184µs
+DEBUG[12-19|01:59:37.278] RPC connection read error                err=EOF
+DEBUG[12-19|01:59:53.455] Recalculated downloader QoS values       rtt=20s confidence=0.948 ttl=1m0s
+DEBUG[12-19|02:00:03.619] Served rpc_modules                       reqid=1 t=32.825µs
+DEBUG[12-19|02:00:03.626] Served eth_mining                        reqid=2 t=25.62µs
+DEBUG[12-19|02:00:03.628] RPC connection read error                err=EOF
+DEBUG[12-19|02:00:13.455] Recalculated downloader QoS values       rtt=20s confidence=0.974 ttl=1m0s
+DEBUG[12-19|02:00:33.356] Current full block not old enough        number=0 hash=5ca4d0…dd3605 delay=90000
+DEBUG[12-19|02:00:33.455] Recalculated downloader QoS values       rtt=20s confidence=0.987 ttl=1m0s
+DEBUG[12-19|02:00:53.456] Recalculated downloader QoS values       rtt=20s confidence=0.993 ttl=1m0s
+DEBUG[12-19|02:01:13.456] Recalculated downloader QoS values       rtt=20s confidence=0.997 ttl=1m0s
+DEBUG[12-19|02:01:33.356] Current full block not old enough        number=0 hash=5ca4d0…dd3605 delay=90000
+DEBUG[12-19|02:01:33.456] Recalculated downloader QoS values       rtt=20s confidence=0.998 ttl=1m0s
+DEBUG[12-19|02:01:53.456] Recalculated downloader QoS values       rtt=20s confidence=0.999 ttl=1m0s
+DEBUG[12-19|02:02:13.457] Recalculated downloader QoS values       rtt=20s confidence=1.000 ttl=1m0s
+DEBUG[12-19|02:02:33.356] Current full block not old enough        number=0 hash=5ca4d0…dd3605 delay=90000
+DEBUG[12-19|02:02:33.457] Recalculated downloader QoS values       rtt=20s confidence=1.000 ttl=1m0s
+DEBUG[12-19|02:02:53.457] Recalculated downloader QoS values       rtt=20s confidence=1.000 ttl=1m0s
+DEBUG[12-19|02:03:13.458] Recalculated downloader QoS values       rtt=20s confidence=1.000 ttl=1m0s
+DEBUG[12-19|02:03:33.357] Current full block not old enough        number=0 hash=5ca4d0…dd3605 delay=90000
+DEBUG[12-19|02:03:33.458] Recalculated downloader QoS values       rtt=20s confidence=1.000 ttl=1m0s
+DEBUG[12-19|02:03:53.458] Recalculated downloader QoS values       rtt=20s confidence=1.000 ttl=1m0s
+DEBUG[12-19|02:04:10.965] Ethereum message handling failed         id=a8be18daa2f4f018 conn=staticdial err=EOF
+DEBUG[12-19|02:04:10.965] Removing Ethereum peer                   peer=a8be18daa2f4f018
+DEBUG[12-19|02:04:10.965] Removing p2p peer                        id=a8be18daa2f4f018 conn=staticdial addr=127.0.0.1:21001 peers=5 duration=5m37.334s req=true err="client quitting"
+DEBUG[12-19|02:04:10.965] Can't resolve node                       id=0xa88980         err="discovery is disabled"
+INFO [12-19|02:04:10.965] Got interrupt, shutting down... 
+INFO [12-19|02:04:10.965] HTTP endpoint closed                     url=http://127.0.0.1:22008
+DEBUG[12-19|02:04:10.965] RPC server shutting down 
+INFO [12-19|02:04:10.965] IPC endpoint closed                      url=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum8/geth.ipc
+DEBUG[12-19|02:04:10.965] RPC server shutting down 
+INFO [12-19|02:04:10.965] Blockchain manager stopped 
+INFO [12-19|02:04:10.965] Stopping Ethereum protocol 
+DEBUG[12-19|02:04:10.966] Reset ancient limit to zero 
+DEBUG[12-19|02:04:10.966] Ethereum message handling failed         id=d601b19c924e9433 conn=inbound    err=EOF
+DEBUG[12-19|02:04:10.966] Removing Ethereum peer                   peer=d601b19c924e9433
+DEBUG[12-19|02:04:10.966] Removing p2p peer                        id=d601b19c924e9433 conn=inbound    addr=127.0.0.1:36510 peers=4 duration=5m36.609s req=false err="client quitting"
+DEBUG[12-19|02:04:10.966] Ethereum message handling failed         id=fe46e51c8864c033 conn=staticdial err=EOF
+DEBUG[12-19|02:04:10.966] Removing Ethereum peer                   peer=fe46e51c8864c033
+DEBUG[12-19|02:04:10.966] Removing p2p peer                        id=fe46e51c8864c033 conn=staticdial addr=127.0.0.1:21007 peers=3 duration=5m37.337s req=false err="client quitting"
+DEBUG[12-19|02:04:10.966] Ethereum message handling failed         id=f6157811a1406b01 conn=staticdial err=EOF
+DEBUG[12-19|02:04:10.966] Removing Ethereum peer                   peer=f6157811a1406b01
+DEBUG[12-19|02:04:10.966] Removing p2p peer                        id=f6157811a1406b01 conn=staticdial addr=127.0.0.1:21003 peers=2 duration=5m37.336s req=false err="client quitting"
+DEBUG[12-19|02:04:10.967] Ethereum message handling failed         id=944002025759bbfc conn=staticdial err=EOF
+DEBUG[12-19|02:04:10.967] Removing Ethereum peer                   peer=944002025759bbfc
+DEBUG[12-19|02:04:10.967] Removing p2p peer                        id=944002025759bbfc conn=staticdial addr=127.0.0.1:21006 peers=1 duration=5m37.331s req=false err="client quitting"
+DEBUG[12-19|02:04:10.967] Ethereum message handling failed         id=01fb48318aeedb38 conn=inbound    err=EOF
+DEBUG[12-19|02:04:10.967] Removing Ethereum peer                   peer=01fb48318aeedb38
+DEBUG[12-19|02:04:10.967] Removing p2p peer                        id=01fb48318aeedb38 conn=inbound    addr=127.0.0.1:36506 peers=0 duration=5m36.916s req=false err="client quitting"
+INFO [12-19|02:04:10.967] Ethereum protocol stopped 
+INFO [12-19|02:04:10.967] Transaction pool stopped 
+DEBUG[12-19|02:04:10.967] Deleting port mapping                    proto=tcp extport=21008 intport=21008 interface="UPnP or NAT-PMP"
+DEBUG[12-19|02:04:10.967] Read error                               err="accept tcp [::]:21008: use of closed network connection"

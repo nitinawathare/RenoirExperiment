@@ -48,7 +48,7 @@ do
 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "pkill -f automate2.py;"
 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/chaindata/"
 	# ssh -n -i quorum2.key ubuntu@$REMOTE_SERVER "killall geth; sudo rm -r /home/ubuntu/gitRepoRenoir/.ethereum/geth/lightchaindata/"
-	hashPowerVar=$(sed  "$((var+1))q;d" /home/nitin14/RenoirExperiment/hashPower)
+	hashPowerVar=$(sed  "$((var+1))q;d" $HOME/RenoirExperiment10Nodes/hashPower)
 	# echo "hashPower $hashPowerVar"
 	#echo "new hashpower calculated is "
 

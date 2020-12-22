@@ -1,0 +1,31 @@
+nohup: appending output to 'nohup.out'
+INFO [12-19|01:57:56.496] Bumping default cache on mainnet         provided=1024 updated=4096
+INFO [12-19|01:57:56.497] Maximum peer count                       ETH=50 LES=0 total=50
+INFO [12-19|01:57:56.497] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [12-19|01:57:56.500] Starting peer-to-peer node               instance=Geth/v1.9.1-stable/linux-amd64/go1.9.3
+INFO [12-19|01:57:56.500] Allocated trie memory caches             clean=1024.00MiB dirty=1024.00MiB
+INFO [12-19|01:57:56.500] Allocated cache and file handles         database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum4/geth/chaindata cache=2.00GiB handles=2048
+INFO [12-19|01:57:56.785] Opened ancient database                  database=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum4/geth/chaindata/ancient
+INFO [12-19|01:57:56.785] Writing default main-net genesis block 
+INFO [12-19|01:57:57.034] Persisted trie from memory database      nodes=12356 size=1.79MiB time=53.297889ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [12-19|01:57:57.035] Initialised chain configuration          config="{ChainID: 1 Homestead: 1150000 DAO: 1920000 DAOSupport: true EIP150: 2463000 EIP155: 2675000 EIP158: 2675000 Byzantium: 4370000 Constantinople: 7280000  Petersburg: 7280000 Engine: ethash}"
+INFO [12-19|01:57:57.035] Disk storage enabled for ethash caches   dir=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum4/geth/ethash count=3
+INFO [12-19|01:57:57.035] Disk storage enabled for ethash DAGs     dir=/home/sourav/.ethash count=2
+INFO [12-19|01:57:57.035] Initialising Ethereum protocol           versions=[63] network=1 dbversion=<nil>
+WARN [12-19|01:57:57.035] Upgrade blockchain database version      from=<nil> to=7
+INFO [12-19|01:57:57.057] Loaded most recent local header          number=0 hash=d4e567…cb8fa3 td=17179869184 age=51y8mo2w
+INFO [12-19|01:57:57.057] Loaded most recent local full block      number=0 hash=d4e567…cb8fa3 td=17179869184 age=51y8mo2w
+INFO [12-19|01:57:57.057] Loaded most recent local fast block      number=0 hash=d4e567…cb8fa3 td=17179869184 age=51y8mo2w
+INFO [12-19|01:57:57.057] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [12-19|01:57:57.084] Allocated fast sync bloom                size=2.00GiB
+INFO [12-19|01:57:57.085] @nitin inside worker.go newworkch******************* 
+INFO [12-19|01:57:57.159] New local node record                    seq=1 id=fb04fa5912d76668 ip=127.0.0.1 udp=30303 tcp=30303
+INFO [12-19|01:57:57.160] Started P2P networking                   self=enode://cf3487662ca62d320c43de08e3ff471913497a18401457efe0aea53b9eae4f3a600e10db868ea39d1ba4efd44a1d72fe4c44736ff5f48163d1787363dc0baa6c@127.0.0.1:30303
+INFO [12-19|01:57:57.161] IPC endpoint opened                      url=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum4/geth.ipc
+INFO [12-19|01:57:57.173] Initialized fast sync bloom              items=12356 errorrate=0.000 elapsed=87.974ms
+INFO [12-19|01:57:59.479] Got interrupt, shutting down... 
+INFO [12-19|01:57:59.479] IPC endpoint closed                      url=/home/sourav/RenoirExperiment10Nodes/gitRepoRenoir/.ethereum4/geth.ipc
+INFO [12-19|01:57:59.479] Blockchain manager stopped 
+INFO [12-19|01:57:59.479] Stopping Ethereum protocol 
+INFO [12-19|01:57:59.479] Ethereum protocol stopped 
+INFO [12-19|01:57:59.479] Transaction pool stopped 
