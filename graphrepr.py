@@ -43,7 +43,7 @@ if __name__ == "__main__":
     check = 0
     indexdata = []
     contract = 0
-    file = "/home/shashi/renoir_exp/block/8433696"
+    file = "/home/RenoirExperiment/renoir_exp/block/8433696"
     with open(file, 'r') as f:
         line = list(f)[-1]
         lastline = line.split(',')

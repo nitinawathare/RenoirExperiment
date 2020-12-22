@@ -2,7 +2,7 @@ import csv
 
 
 def main():
-    file = '/home/shashi/readWrite'
+    file = '/home/RenoirExperiment/readWrite'
     blockrecord = {}
     tx = 0
     contx=0
@@ -32,7 +32,7 @@ def main():
                 comp = comp + 1
                 check="comp"
 
-    with open("/home/shashi/data.csv", "w") as f:
+    with open("/home/RenoirExperiment/data.csv", "w") as f:
         writer = csv.DictWriter(f, fieldnames=["Blocknum", "SimpleTrx", "contractTrx", "Sopcode", "otherOpcode"])
         writer.writeheader()
         csv.writer(f).writerows((k,) + v for k, v in blockrecord.items())
