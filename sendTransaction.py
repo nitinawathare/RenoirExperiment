@@ -70,8 +70,6 @@ def sendSortTransaction(address):
     # contract_source_path = sys.argv[1]+'/../../cpuheavy.sol'
 
     # contract_source_path = '/home/ubuntu/gitRepoRenoir/sortMemory.sol'
-    # contract_source_path = '/home/sourav/EVD-Expt/cpuheavy.sol'
-
     compiled_sol = compile_source_file(contract_source_path)
     contract_id, contract_interface = compiled_sol.popitem()
     sort_contract = w3.eth.contract(
@@ -85,8 +83,6 @@ def sendMatrixTransaction(address):
     # contract_source_path = sys.argv[1]+'/../../matrixMultiplication.sol'
 
     # contract_source_path = '/home/ubuntu/gitRepoRenoir/matrixMemory.sol'
-
-    # contract_source_path = '/home/sourav/EVD-Expt/matrixMultiplication.sol'
     compiled_sol = compile_source_file(contract_source_path)
     contract_id, contract_interface = compiled_sol.popitem()
     sort_contract = w3.eth.contract(
