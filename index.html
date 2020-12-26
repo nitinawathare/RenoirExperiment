@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  /*padding: 8px;*/
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+<body>
+
+<h1>clone the git repo:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+git clone https://github.com/nitinawathare/RenoirExperiment.git<br>
+git clone https://github.com/sourav1547/go-renoir.git<br>
+</p>
+
+<!-- <p>----------------------------------------------------------------------------------------<br><br> -->
+
+
+<h1>Install python3, go version 1.9.3, solidity version 0.4.25, web3 version 4.9.0, py-solc, etc:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+cd RenoirExperiment<br>
+sh installGo.sh<br>
+sh installpy3.sh<br>
+<p>
+
+
+
+<h1>Configuration:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+<font size="4"
+          color="rgb(128, 128, 0)"> 
+<ul>
+  <li>One can run the experiment for different validation time, which can be varied by using different block and transaction gas limit</li>
+  <li>There are three places where the block gas limit and transaction gas limit has to change to run the experiment.<br>
+  	<ul>
+  		<br><li>buildGenesis.py</li><br>
+  		<img src="images/buildGenesisPy.png" alt="buildGenesisPy" width="790" height="533"><br><br>
+  		Note that gas limit in buildGenesis.py should be in gexa-decimal, We have tested the system for gas limit of 40M, 400M, 800M which gives has the block validation time of ~250ms, ~2.5s and ~5sec respectively in Ethereum for our experimetal setup.<br><br>
+  		<table>
+		  <tr>
+		    <th>Gas Limit Decimal</th>
+		    <th>Gas Limit Hexa-decimal</th>
+		  </tr>
+		  <tr>
+		    <td>3.5M</td>
+		    <td>3567E0</td>
+		  </tr>
+		  <tr>
+		    <td>12M</td>
+		    <td>B71B00</td>
+		  </tr>
+		  <tr>
+		    <td>40M</td>
+		    <td>2625A00</td>
+		  </tr>
+		  <tr>
+		    <td>120M</td>
+		    <td>7270E00</td>
+		  </tr>
+		<tr>
+		    <td>240M</td>
+		    <td>E4E1C00</td>
+		  </tr>
+		<tr>
+		    <td>400M</td>
+		    <td>17D78400</td>
+		</tr>
+		<tr>
+		    <td>800M</td>
+		    <td>2FAF0800</td>
+		</tr>
+		</table><br><br>
+
+  		<li>deployContract.py</li><br><br>
+  		
+  		<li>sendTransaction.py</li>
+  	</ul>
+  </li>
+
+</ul>
+
+</font> 
+
+
+<h1>Compile and install geth:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+cd go-renoir<br>
+git checkout Renoir_Implementation_VaryingSimilarity<br>
+make clean<br>
+make<br>
+cd ..<br>
+<p>
+
+
+<h1>For local 10 node setup :</h1> 
+<p>----------------------------------------------------------------------------------------<br><br>
+
+mv RenoirExperiment RenoirExperiment10Nodes<br>
+cd RenoirExperiment10Nodes<br>
+git checkout artifactLocalSetup<br>
+sh runExperiment.sh<br>
+<p>
+
+
+<h1>For 50 node setup on different oracle virtual machine</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+cd RenoirExperiment<br>
+git checkout artifact<br>
+
+sh copyScripts.sh<br>
+sh installGoLocal.sh<br>
+sh downloadEVDCodeLocal.sh<br>
+sh setupEthereumLocal.sh<br>
+sh initGenesis.sh<br>
+sh runExperiment.sh<br>
+<p>
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+

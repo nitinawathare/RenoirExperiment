@@ -22,9 +22,11 @@ cd ..
 
 For local 10 node setup : 
 ---------------------------------------------
+One can run the experiment for different validation time, which can be varried by using different block and transaction gas limit.
 mv RenoirExperiment RenoirExperiment10Nodes
 cd RenoirExperiment10Nodes
 git checkout artifactLocalSetup
+Before running the experiment one should 
 sh runExperiment.sh
 
 
