@@ -66,8 +66,8 @@ def compile_source_file(file_path):
 
 def sendSortTransaction(address):
 
-    # contract_source_path = '/home/ubuntu/gitRepoEVD/sortMemory.sol'
-    contract_source_path = sys.argv[1]+'/../../cpuheavy.sol'
+    contract_source_path = sys.argv[1]+'/../../sortMemory.sol'
+    # contract_source_path = sys.argv[1]+'/../../cpuheavy.sol'
 
     # contract_source_path = '/home/ubuntu/gitRepoRenoir/sortMemory.sol'
     # contract_source_path = '/home/sourav/EVD-Expt/cpuheavy.sol'
@@ -77,12 +77,12 @@ def sendSortTransaction(address):
     sort_contract = w3.eth.contract(
     address=address,
     abi=contract_interface['abi'])
-    tx_hash = sort_contract.functions.sort().transact({'txType':"0x1", 'from':w3.eth.accounts[0], 'gas':5500000})
+    tx_hash = sort_contract.functions.sort().transact({'txType':"0x1", 'from':w3.eth.accounts[0], 'gas':1431937})
 
 def sendMatrixTransaction(address):
 
-    # contract_source_path = '/home/ubuntu/gitRepoEVD/matrixMemory.sol'
-    contract_source_path = sys.argv[1]+'/../../matrixMultiplication.sol'
+    contract_source_path = sys.argv[1]+'/../../matrixMemory.sol'
+    # contract_source_path = sys.argv[1]+'/../../matrixMultiplication.sol'
 
     # contract_source_path = '/home/ubuntu/gitRepoRenoir/matrixMemory.sol'
 
@@ -92,39 +92,40 @@ def sendMatrixTransaction(address):
     sort_contract = w3.eth.contract(
     address=address,
     abi=contract_interface['abi'])
-    tx_hash = sort_contract.functions.multiply().transact({'txType':"0x2", 'from':w3.eth.accounts[0], 'gas':4500000})
+    tx_hash = sort_contract.functions.multiply().transact({'txType':"0x2", 'from':w3.eth.accounts[0], 'gas':1423713})
 
 def sendEmptyLoopTransaction(address):
 
-    # contract_source_path = '/home/sourav/EVD-Expt/emptyLoop.sol'
+    contract_source_path = sys.argv[1]+'/../../emptyLoop.sol'
     compiled_sol = compile_source_file(contract_source_path)
     contract_id, contract_interface = compiled_sol.popitem()
     sort_contract = w3.eth.contract(
     address=address,
     abi=contract_interface['abi'])
-    tx_hash = sort_contract.functions.runLoop().transact({'txType':"0x3", 'from':w3.eth.accounts[0], 'gas':6000000})
+    tx_hash = sort_contract.functions.runLoop().transact({'txType':"0x3", 'from':w3.eth.accounts[0], 'gas':1465408})
 
 print("Starting Transaction Submission")
 # w3 = Web3(IPCProvider('/home/sourav/test-eth4/geth.ipc', timeout=100000))
-w3 = Web3(IPCProvider('/home/ubuntu/gitRepoRenoir/.ethereum/geth.ipc', timeout=100000))
+w3 = Web3(IPCProvider(sys.argv[1]+'/geth.ipc', timeout=100000))
 
-file = open('/home/ubuntu/gitRepoRenoir/experimentTimeStats',"w")
+file = open(sys.argv[1]+'/experimentTimeStats',"w")
 file.write("Experiment Start Time"+str(datetime.datetime.now())+"\n")
 
-w3.miner.start(1)
+
 
 curBlock = w3.eth.getBlock('latest')
 while curBlock['number'] < 10:
     time.sleep(1)
     curBlock = w3.eth.getBlock('latest')
 
+w3.miner.start(1)
 
 i=0
 curBlock = w3.eth.getBlock('latest')
-while curBlock['number'] < 1050:
+while curBlock['number'] < 10:
 #while i < 2:
     # with open('/home/sourav/contractAddressList1') as fp:
-    with open('/home/ubuntu/gitRepoRenoir/contractAddressList') as fp:
+    with open(sys.argv[1]+'/../../contractAddressList') as fp:
         for line in fp:
             #print(line)
             a,b = line.rstrip().split(':', 1)
@@ -142,7 +143,7 @@ while curBlock['number'] < 1050:
 w3.miner.stop()
 
 time.sleep(30)
-file1 = open('/home/ubuntu/gitRepoRenoir/minersInChain',"w")
+file1 = open(sys.argv[1]+'/minersInChain',"w")
 highestBlock = w3.eth.getBlock('latest')
 highestBlock = highestBlock['number']
 for blockHeight in range(0,highestBlock+1):

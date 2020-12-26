@@ -158,7 +158,7 @@ def deploySortContract(contract_source_path, w3, account):
     contract_id, contract_interface1 = compiled_sol.popitem()
     tx_hash = w3.eth.contract(
             abi=contract_interface1['abi'],
-            bytecode=contract_interface1['bin']).constructor(150).transact({'txType':"0x0", 'from':account, 'gas':11607685})
+            bytecode=contract_interface1['bin']).constructor(665).transact({'txType':"0x0", 'from':account, 'gas':11607685})
     return tx_hash
 
 def deployMatrixContract(contract_source_path, w3, account):
@@ -167,7 +167,7 @@ def deployMatrixContract(contract_source_path, w3, account):
     curBlock = w3.eth.getBlock('latest')
     tx_hash = w3.eth.contract(
             abi=contract_interface2['abi'],
-            bytecode=contract_interface2['bin']).constructor(8).transact({'txType':"0x0", 'from':account, 'gas':11758781})
+            bytecode=contract_interface2['bin']).constructor(15).transact({'txType':"0x0", 'from':account, 'gas':11758781})
     return tx_hash
 
 def deployEmptyContract(contract_source_path, w3, account):
@@ -176,7 +176,7 @@ def deployEmptyContract(contract_source_path, w3, account):
     curBlock = w3.eth.getBlock('latest')
     tx_hash = w3.eth.contract(
             abi=contract_interface3['abi'],
-            bytecode=contract_interface3['bin']).constructor(400).transact({'txType':"0x0", 'from':account, 'gas':11709158})
+            bytecode=contract_interface3['bin']).constructor(105).transact({'txType':"0x0", 'from':account, 'gas':11709158})
     return tx_hash
 
 def deployContracts(w3, account):
@@ -213,11 +213,11 @@ def deployContracts(w3, account):
         file1.write("\n")
 
 
-sort_source_path = sys.argv[1]+'/../../cpuheavy.sol'
-#sort_source_path = '/home/ubuntu/gitRepoRenoir/sortMemory.sol'
+# sort_source_path = sys.argv[1]+'/../../cpuheavy.sol'
+sort_source_path = sys.argv[1]+'/../../sortMemory.sol'
 
-matrix_source_path = sys.argv[1]+'/../../matrixMultiplication.sol'
-#matrix_source_path = '/home/ubuntu/gitRepoRenoir/matrixMemory.sol'
+# matrix_source_path = sys.argv[1]+'/../../matrixMultiplication.sol'
+matrix_source_path = sys.argv[1]+'/../../matrixMemory.sol'
 
 empty_source_path = sys.argv[1]+'/../../emptyLoop.sol'
 
