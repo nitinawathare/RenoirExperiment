@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  /*padding: 8px;*/
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+<body>
+
+<h1>clone the git repo:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+git clone https://github.com/nitinawathare/RenoirExperiment.git<br>
+git clone https://github.com/sourav1547/go-renoir.git<br>
+</p>
+
+<!-- <p>----------------------------------------------------------------------------------------<br><br> -->
+
+
+<h1>Install python3, go version 1.9.3, solidity version 0.4.25, web3 version 4.9.0, py-solc, etc:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+cd RenoirExperiment<br>
+sh installGo.sh<br>
+sh installpy3.sh<br>
+<p>
+
+
+
+<h1>Configuration:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+<font size="4"
+          color="rgb(128, 128, 0)"> 
+<ul>
+  <li>One can run the experiment for different validation time, which can be varied by using different block and transaction gas limit</li>
+  <li>There are three places where the block gas limit and transaction gas limit has to change to run the experiment.<br>
+  	<ol>
+  		<br><li>buildGenesis.py</li><br>
+  		<img src="images/buildGenesisPy.png" alt="buildGenesisPy" width="790" height="533"><br><br>
+  		Note that gas limit in buildGenesis.py should be in gexa-decimal, We have tested the system for gas limit of 40M, 400M, 800M which gives has the block validation time of ~250ms, ~2.5s and ~5sec respectively in Ethereum for our experimetal setup.<br><br>
+  		<table>
+		  <tr>
+		    <th>Gas Limit Decimal</th>
+		    <th>Gas Limit Hexa-decimal</th>
+		  </tr>
+		  <tr>
+		    <td>3.5M</td>
+		    <td>3567E0</td>
+		  </tr>
+		  <tr>
+		    <td>12M</td>
+		    <td>B71B00</td>
+		  </tr>
+		  <tr>
+		    <td>40M</td>
+		    <td>2625A00</td>
+		  </tr>
+		  <tr>
+		    <td>120M</td>
+		    <td>7270E00</td>
+		  </tr>
+		<tr>
+		    <td>240M</td>
+		    <td>E4E1C00</td>
+		  </tr>
+		<tr>
+		    <td>400M</td>
+		    <td>17D78400</td>
+		</tr>
+		<tr>
+		    <td>800M</td>
+		    <td>2FAF0800</td>
+		</tr>
+		</table><br><br>
+
+  		<li>deployContract.py</li><br>
+  		Next, we vary the block validation time by increasing the smart contract's complexity by passing different values to its constructor, as highlighted in the image below. For example, if you are running an experiment for block gas limit of 800M, then value passed to the "sort" smart contract is 150. Detail of other values and gas limit combination is listed in the table below. <br><br> 
+
+  		Parameters for Experiments:<br><br>
+<table>
+	<tr><td>
+  		A). 40 Million Block measurement time.<br>
+  		<table>
+		  <tr>
+		    <th>Contract</th>
+		    <th>Dep. param</th>
+		    <th>Gaslimit</th>
+		    <th>Gasused</th>
+		  </tr>
+		  <tr>
+		    <td>sort</td>
+		    <td>15</td>
+		    <td>250 k</td>
+		    <td>224323</td>
+		  </tr>
+		  <tr>
+		    <td>Matrix</td>
+		    <td>3</td>
+		    <td>250 k</td>
+		    <td>244314</td>
+		  </tr>
+		  <tr>
+		    <td>Empty</td>
+		    <td>15</td>
+		    <td>250 k</td>
+		    <td>227908</td>
+		  </tr>
+		</table>
+		<br><br>
+
+	B). 400 Million Block measurement time.<br>
+  		<table>
+		  <tr>
+		    <th>Contract</th>
+		    <th>Dep. param</th>
+		    <th>Gaslimit</th>
+		    <th>Gasused</th>
+		  </tr>
+		  <tr>
+		    <td>sort</td>
+		    <td>145</td>
+		    <td>4305255</td>
+		    <td>4205255</td>
+		  </tr>
+		  <tr>
+		    <td>Matrix</td>
+		    <td>6</td>
+		    <td>1932171</td>
+		    <td>1832171</td>
+		  </tr>
+		  <tr>
+		    <td>Empty</td>
+		    <td>170</td>
+		    <td>148003</td>
+		    <td>138003</td>
+		  </tr>
+		</table>
+		<br><br>
+
+	C). 800 Million Block measurement time.<br>
+  		<table>
+		  <tr>
+		    <th>Contract</th>
+		    <th>Dep. param</th>
+		    <th>Gaslimit</th>
+		    <th>Gasused</th>
+		  </tr>
+		  <tr>
+		    <td>sort</td>
+		    <td>150</td>
+		    <td>5.5M</td>
+		    <td>5121763</td>
+		  </tr>
+		  <tr>
+		    <td>Matrix</td>
+		    <td>8</td>
+		    <td>4.5 M</td>
+		    <td>4487369</td>
+		  </tr>
+		  <tr>
+		    <td>Empty</td>
+		    <td>400</td>
+		    <td>6.0 M</td>
+		    <td>5521658</td>
+		  </tr>
+		</table>
+		<br>
+	</td>
+	<td>
+		D. 12 Million Block measurement time.<br>
+		<table>
+		  <tr>
+		    <th>Contract</th>
+		    <th>Dep. param</th>
+		    <th>Gaslimit</th>
+		    <th>Gasused</th>
+		  </tr>
+		  <tr>
+		    <td>sort</td>
+		    <td>35</td>
+		    <td>78002</td>
+		    <td>77002</td>
+		  </tr>
+		  <tr>
+		    <td>Matrix</td>
+		    <td>4</td>
+		    <td>58681</td>
+		    <td>57681</td>
+		  </tr>
+		  <tr>
+		    <td>Empty</td>
+		    <td>4</td>
+		    <td>77658</td>
+		    <td>76658</td>
+		  </tr>
+		</table><br><br>
+
+
+		E. 120 Million Block measurement time.<br>
+		<table>
+		  <tr>
+		    <th>Contract</th>
+		    <th>Dep. param</th>
+		    <th>Gaslimit</th>
+		    <th>Gasused</th>
+		  </tr>
+		  <tr>
+		    <td>sort</td>
+		    <td>330</td>
+		    <td>684023</td>
+		    <td>683023</td>
+		  </tr>
+		  <tr>
+		    <td>Matrix</td>
+		    <td>12</td>
+		    <td>759781</td>
+		    <td>758781</td>
+		  </tr>
+		  <tr>
+		    <td>Empty</td>
+		    <td>50</td>
+		    <td>710158</td>
+		    <td>709158</td>
+		  </tr>
+		</table><br><br>
+		
+		F. 240 Million Block measurement time.<br>
+		<table>
+		  <tr>
+		    <th>Contract</th>
+		    <th>Dep. param</th>
+		    <th>Gaslimit</th>
+		    <th>Gasused</th>
+		  </tr>
+		  <tr>
+		    <td>sort</td>
+		    <td>665</td>
+		    <td>1432937</td>
+		    <td>1431937</td>
+		  </tr>
+		  <tr>
+		    <td>Matrix</td>
+		    <td>15</td>
+		    <td>1424713</td>
+		    <td>1423713</td>
+		  </tr>
+		  <tr>
+		    <td>Empty</td>
+		    <td>105</td>
+		    <td>1466408</td>
+		    <td>1465408</td>
+		  </tr>
+		</table><br>
+	</td>
+	</tr>
+</table><br><br>
+
+
+		<img src="images/deployContract.png" alt="deployContract" width="790" height="533"><br><br>
+  		<li>sendTransaction.py</li><br>
+  		One should change the transaction gas limit as highlighted in the image bellow and the corresponding value are listed in table A, B, C above.<br><br>
+  		<img src="images/sendTransaction.png" alt="sendTransaction" width="790" height="533"><br><br>
+  	</ol>
+  </li>
+
+</ul>
+
+</font> 
+
+
+<h1>Compile and install geth:</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+cd go-renoir<br>
+git checkout Renoir_Implementation_VaryingSimilarity<br>
+make clean<br>
+make<br>
+cd ..<br>
+<p>
+
+
+<h1>For local 10 node setup :</h1> 
+<p>----------------------------------------------------------------------------------------<br><br>
+
+mv RenoirExperiment RenoirExperiment10Nodes<br>
+cd RenoirExperiment10Nodes<br>
+git checkout artifactLocalSetup<br>
+sh runExperiment.sh<br>
+<p>
+
+
+<h1>For 50 node setup on different oracle virtual machine</h1>
+<p>----------------------------------------------------------------------------------------<br><br>
+cd RenoirExperiment<br>
+git checkout artifact<br>
+
+sh copyScripts.sh<br>
+sh installGoLocal.sh<br>
+sh downloadEVDCodeLocal.sh<br>
+sh setupEthereumLocal.sh<br>
+sh initGenesis.sh<br>
+sh runExperiment.sh<br>
+<p>
+
+<h1>Draw the figure from existing data-set</h1>
+     
+<p>----------------------------------------------------------------------------------------<br><br>
+sudo apt-get install libgnome2-bin
+cd RenoirExperiment<br>
+git checkout artifact<br>
+cd script<br>
+sh runScripts.sh<br>
+mv data ../graph/<br>
+cd ../graph<br><br>
+
+
+<font size="3"
+          color="rgb(193, 10, 19)"> 
+Please note, pdflatex package should be installed on the machine to run this.
+</font><br><br>
+make clean<br>
+make<br>
+gnome-open main.pdf<br>
+
+
+</body>
+</html> 

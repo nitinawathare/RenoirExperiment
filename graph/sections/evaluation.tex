@@ -1,0 +1,502 @@
+% !TEX root = ../main.tex
+
+\pgfplotsset{small,label style={font=\fontsize{8}{9}\selectfont},legend style={font=\fontsize{7}{8}\selectfont},height=4.2cm,width=1.3\textwidth}
+\begin{figure*}[t!]
+    \begin{minipage}{0.295\textwidth}
+    \subfigure[MPU]{
+    \label{fig:mpu-system}
+    \begin{tikzpicture}
+    \begin{axis}[
+        % ybar,
+        enlargelimits=0.25,
+        % bar width=9.9pt,
+        % /pgfplots/ybar=0pt,
+        legend columns=4,
+        legend pos=north east,
+        xlabel={$\tau/\intv$},
+        ylabel= {Mining Power util.},
+        symbolic x coords={0.011, 0.122, 0.139, 0.205, 0.253},
+        grid=minor,
+        xtick={0.011, 0.122, 0.139, 0.205, 0.253},
+        ymin=55,
+        ymax=135,
+        ]
+        % \addplot [fill=blue!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=forkRate, y error=cfiFork,  col sep=comma] {data/eth-minefrac-renoir.csv}; 
+        % \addplot [fill=red!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=forkRate, y error=cfiFork, col sep=comma] {data/renoir-minefrac-renoir.csv};
+
+        \addplot [blue] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=forkRate, y error=cfiFork,  col sep=comma] {data/eth-minefrac-renoir.csv}; 
+        \addplot [red] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=forkRate, y error=cfiFork, col sep=comma] {data/renoir-minefrac-renoir.csv};
+        
+        \addlegendentry{$Ethereum$}
+        \addlegendentry{$Renoir$}
+        
+    \end{axis}
+    \end{tikzpicture}
+    }
+    \end{minipage}\hfill \hfill \hfill \hfill \hfill \hfill
+    \begin{minipage}{0.295\textwidth}
+    \subfigure[Throughput]{
+    \label{fig:throughput}
+    \begin{tikzpicture}
+    \begin{axis}[
+        % ybar,
+        enlargelimits=0.25,
+        % bar width=9.9pt,
+        % /pgfplots/ybar=0pt,
+        legend columns=4,
+        legend pos=north east,
+        xlabel={$\tau/\intv$},
+        ylabel= {Throughput(tx/hour)},
+        symbolic x coords={0.011, 0.122, 0.139, 0.205, 0.253},
+        grid=minor,
+        xtick={0.011, 0.122, 0.139, 0.205, 0.253},
+        ymin=25000,
+        ymax=45000,
+        ]
+        \addplot [blue] [error bars/.cd, y explicit,y dir=both, error bar style={color=black},] table [x=ratio, y=throughput, y error=cfi, col sep=comma] {data/eth-throughput.csv}; 
+        \addplot [red] [error bars/.cd, y explicit,y dir=both, error bar style={color=black},] table [x=ratio, y=throughput, y error=cfi, col sep=comma] {data/renoir-throughput.csv};
+
+        \addlegendentry{$Ethereum$}
+        \addlegendentry{$Renoir$}
+        
+    \end{axis}
+    \end{tikzpicture}
+    }
+    \end{minipage}\hfill \hfill \hfill \hfill \hfill \hfill
+
+    
+    \setlength{\abovecaptionskip}{6pt}
+    \setlength{\belowcaptionskip}{-1pt}
+    \caption{Mining power utilization and throughput of \etr\ and \prot\ with a confidence interval of 95\%
+    measured in our private network with varying block creation-arrival 
+    ratio}
+    \label{fig:ethRenoirThroughput}
+\end{figure*}    
+
+
+\pgfplotsset{small,label style={font=\fontsize{8}{9}\selectfont},legend style={font=\fontsize{7}{8}\selectfont},height=4.2cm,width=1.3\textwidth}
+\begin{figure*}[t!]
+    \begin{minipage}{0.295\textwidth}
+    \subfigure[\etr]{
+    \label{fig:mpu-eth}
+    \begin{tikzpicture}
+    \begin{axis}[
+        ybar,
+        enlargelimits=0.25,
+        bar width=5.9pt,
+        /pgfplots/ybar=0pt,
+        legend columns=4,
+        legend pos=north east,
+        xlabel={Block creation-arrival ratio},
+        ylabel= {Mining Power util.},
+        symbolic x coords={0.011, 0.122, 0.205},
+        grid=minor,
+        xtick={0.011, 0.122, 0.205},
+        ymin=55,
+        ymax=135,
+        ]
+        \addplot [pattern = north east lines] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac1, y error=cfi1,  col sep=comma] {data/eth-minefrac-renoir.csv}; 
+        \addplot [fill=red!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac2, y error=cfi2, col sep=comma] {data/eth-minefrac-renoir.csv};
+        \addplot [pattern = north west lines] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac3, y error=cfi3,  col sep=comma] {data/eth-minefrac-renoir.csv}; 
+        \addplot [fill=blue!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac4, y error=cfi2, col sep=comma] {data/eth-minefrac-renoir.csv};
+        \addplot [fill=blue!70!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac5, y error=cfi3, col sep=comma] {data/eth-minefrac-renoir.csv};
+        % \addplot [fill=red!60!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac6, y error=cfi1, col sep=comma] {data/eth-minefrac-renoir.csv};
+         \addplot [fill=green!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac7, y error=cfi1, col sep=comma] {data/eth-minefrac-renoir.csv};
+         \addplot [fill=green!60!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac8, y error=cfi4, col sep=comma] {data/eth-minefrac-renoir.csv};
+        \addlegendentry{$n_1$}
+        \addlegendentry{$n_2$}
+        \addlegendentry{$n_3$}
+        \addlegendentry{$n_4$}
+        \addlegendentry{$n_5$}
+        % \addlegendentry{$n_6$}
+        \addlegendentry{$n_6$}
+        \addlegendentry{$n_7$}
+    \end{axis}
+    \end{tikzpicture}
+    }
+    \end{minipage}\hfill \hfill \hfill \hfill \hfill \hfill
+    \begin{minipage}{0.295\textwidth}
+    \subfigure[\prot]{
+    \label{fig:mpu-prot}
+        \begin{tikzpicture}
+    \begin{axis}[
+        ybar,
+        enlargelimits=0.25,
+        bar width=5.9pt,
+        /pgfplots/ybar=0pt,
+        legend columns=4,
+        legend pos=north east,
+        xlabel={Block creation-arrival ratio},
+        % ylabel= {Mining Power util.},
+        symbolic x coords={0.011, 0.139, 0.253},
+        grid=minor,
+        xtick={0.011, 0.139, 0.253},
+        ymin=55,
+        ymax=135,
+        ymajorticks=false,
+        ]
+        \addplot [pattern = north east lines] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac1, y error=cfi1,  col sep=comma] {data/renoir-minefrac-renoir.csv}; 
+        \addplot [fill=red!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac2, y error=cfi2, col sep=comma] {data/renoir-minefrac-renoir.csv};
+        \addplot [pattern = north west lines] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac3, y error=cfi3,  col sep=comma] {data/renoir-minefrac-renoir.csv}; 
+        \addplot [fill=blue!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac4, y error=cfi4, col sep=comma] {data/renoir-minefrac-renoir.csv};
+        \addplot [fill=blue!70!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac5, y error=cfi5, col sep=comma] {data/renoir-minefrac-renoir.csv};
+        % \addplot [fill=red!60!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac6, y error=cfi1, col sep=comma] {data/eth-minefrac-renoir.csv};
+         \addplot [fill=green!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac7, y error=cfi7, col sep=comma] {data/renoir-minefrac-renoir.csv};
+         \addplot [fill=green!60!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac8, y error=cfi8, col sep=comma] {data/renoir-minefrac-renoir.csv};
+        \addlegendentry{$n_1$}
+        \addlegendentry{$n_2$}
+        \addlegendentry{$n_3$}
+        \addlegendentry{$n_4$}
+        \addlegendentry{$n_5$}
+        % \addlegendentry{$n_6$}
+        \addlegendentry{$n_6$}
+        \addlegendentry{$n_7$}
+    \end{axis}
+    \end{tikzpicture}
+    }
+    \end{minipage}\hfill
+    \begin{minipage}{0.295\textwidth}
+    \subfigure[\prot, Block creation-arrival ratio=0.253]{
+        \label{fig:mpu-prot-high}
+            \begin{tikzpicture}
+    \begin{axis}[
+        ybar,
+        enlargelimits=0.25,
+        bar width=5.9pt,
+        /pgfplots/ybar=0pt,
+        legend columns=4,
+        legend pos=north east,
+        xlabel={\Siml\ in \%},
+        symbolic x coords={93, 75, 50},
+        grid=minor,
+        xtick={93, 75, 50},
+        ymin=55,
+        ymax=135,
+        ymajorticks=false,
+        ]
+        \addplot [pattern = north east lines] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac1, y error=cfi1,  col sep=comma] {data/similarity-minefrac-renoir.csv}; 
+        \addplot [fill=red!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac2, y error=cfi2, col sep=comma] {data/similarity-minefrac-renoir.csv};
+        \addplot [pattern = north west lines] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac3, y error=cfi3,  col sep=comma] {data/similarity-minefrac-renoir.csv}; 
+        \addplot [fill=blue!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac4, y error=cfi4, col sep=comma] {data/similarity-minefrac-renoir.csv};
+        \addplot [fill=blue!70!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac5, y error=cfi5, col sep=comma] {data/similarity-minefrac-renoir.csv};
+        % \addplot [fill=red!60!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac6, y error=cfi1, col sep=comma] {data/eth-minefrac-renoir.csv};
+         \addplot [fill=green!30!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac7, y error=cfi7, col sep=comma] {data/similarity-minefrac-renoir.csv};
+         \addplot [fill=green!60!white] [error bars/.cd, y explicit,y dir=both,] table [x=gasUsage, y=frac8, y error=cfi8, col sep=comma] {data/similarity-minefrac-renoir.csv};
+        \addlegendentry{$n_1$}
+        \addlegendentry{$n_2$}
+        \addlegendentry{$n_3$}
+        \addlegendentry{$n_4$}
+        \addlegendentry{$n_5$}
+        % \addlegendentry{$n_6$}
+        \addlegendentry{$n_6$}
+        \addlegendentry{$n_7$}
+    \end{axis}
+    \end{tikzpicture}
+    }
+    \end{minipage}\hfill
+
+    \setlength{\abovecaptionskip}{6pt}
+    \setlength{\belowcaptionskip}{-1pt}
+    \caption{Mining power utilization of the first 7 nodes of \etr\ and \prot\ with a confidence interval of 95\%  measured in our private network with varying block creation-arrival ratio and varying \siml}
+    \label{fig:mpu}
+\end{figure*}
+
+% \section{\prot\ Evaluation}
+% \label{sec:evaluations}
+% We implemented \prot\ on the open-source Go-Ethereum client version ${\tt 1.9.3}$ and measured its performance under two different setups described below. 
+
+% \subsection{Experimental Setup}
+% \label{sub:expt-setup}
+% %
+% \emph{First}, we deploy a \prot\ equipped node to the \etr\ mainnet and
+% investigate the extent of reduction in the block validation time due to 
+% \prot. The node had one 2.19GHz dual-core CPU, 8 GB RAM, and 6.4TB NVMe SSD. 
+
+% \emph{Second}, we create a private blockchain network on 50 Oracle Virtual
+% Machines to observe the effect of varying \emph{block creation time} on both
+% \etr\ and \prot. In this setup each VM is equipped with one 2.19GHz dual-core
+% CPU, 8 GB RAM and 128GB HDD. All VMs were running ubuntu 16.04 with download
+% and upload bandwidth of 1 GBps and  100 MBps, respectively. Each VM runs one
+% blockchain network node. Throughout the experiment, we have controlled the
+% block mining difficulty so as to take 15 seconds to solve the Proof-of-Work
+% puzzle to mine the block. This implies that the average block inter-arrival 
+% in our \etr\ experiment is 15 seconds + block propagation delay + block
+% creation time + block validation 
+% time and the last quantity is replaced with the \prot\ validation time for
+% \prot. With this experimental setup, we compare \prot\ and \etr\ on metrics 
+% we define below. 
+% % Also, the result for each metrics is plotted with the confidence interval of 95\%.
+
+
+% \vspace{1mm}
+% \noindent
+% {\bf Nodes, network delays and topology.}
+% We assign mining power to each node in our 50 node setup in 
+% accordance with the distribution of mining power of the top 50 
+% miners of the \etr\ network~\cite{ethMining}. The top 50 miners 
+% (by mining power) contribute to around 99.98\% of total mining 
+% power of the real \etr\ network, with the most powerful miner 
+% controlling ${\sim}33\%$ of the total mining power. 
+% %
+% Also, we use the geographical location of these top 50 \etr\ 
+% miners from~\cite{ethMining} to mimic the location of our 50 
+% nodes. We ensure that the inter-node latency (using Linux ${\tt tc}$ 
+% command) between any pair of nodes is in line with the ping delay 
+% corresponding to the geographic locations of the nodes~\cite{pingDelay}
+% in effect mimicking the delays between real nodes of the \etr\ mainnet. 
+
+% In line with the topology of the Bitcoin network where the degree 
+% of a node follows the power-law distribution~\cite{bitcoinTopology} 
+% we design the topology of our experimental setup as follows: Each 
+% node connects to a random set of other nodes such that the degree 
+% of the node follows the power-law distribution.
+
+% \vspace{1mm}
+% \noindent
+% {\bf Applications tested.} 
+% We evaluate both \prot\ and the \etr\ by deploying three types of 
+% smart contracts, each implementing quicksort, 2D matrix multiplication,
+% and loop iteration with basic arithmetic operations. 
+% Throughout the experiment, we maintain an average of ${\sim}165$
+% transactions per block which is the average number of transactions 
+% in a \etr\ block. Thus, whenever required, we vary the block 
+% creation time by varying the time it takes for a node to execute
+% each of these transactions. 
+
+% \vspace{1mm}
+% \noindent
+% {\bf Parameters and Metrics.}
+% The \emph{block creation-arrival ratio} is the ratio of the block 
+% creation time to the average block inter-arrival time and is an important parameter in the performance evaluation of a blockchain
+% system.
+% In particular, a high block-creation interval ratio indicates
+% that the system has high throughput if it(high block-creation interval) is the result of including more number of transactions in the block.  
+% Thus, we investigate the effect of increasing block 
+% creation-arrival ratio on \emph{mining power utilization},  
+% block validation time and throughput. Throughput is the number of main chain transactions processed per unit time.
+% Mining power utilization of a node is the ratio of the 
+% number of blocks mined by the node that eventually makes it to
+% the main chain to that of the total number of blocks mined by 
+% the node. This indicates the extent to which mining was 
+% successful - the blocks that do not make it to the main chain
+% represent wasted effort.  
+
+
+% \subsection{Experiments and Results}
+% \label{sub:results}
+%
+\begin{figure}[t!]
+   \centering
+    \pgfplotsset{footnotesize,height=4.5cm, width=0.55\linewidth}
+    \begin{tikzpicture}
+    \begin{axis}[
+        legend pos=north east,
+        legend columns=2,
+        ylabel=Block validation time (ms),
+        xlabel=Block height,
+        % symbolic x coords={9951489, 9951989, 9952489},
+        grid=minor,
+        xtick={9951489, 9951989, 9952489},
+        ymax=300,
+        ]
+        \addplot [line width=0.75, mark=none ,mark size=1.2pt, red] table [x=blockNum, y=exTime, col sep=comma] {data/avc.csv};
+        \addplot [line width=0.75, mark=none ,mark size=1.2pt, blue] table [x=blockNum, y=exTime, col sep=comma] {data/ethereumData.csv}; 
+        \addlegendentry{with \prot}
+        \addlegendentry{without \prot}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Validation time of 1000 real \etr\ blocks at two nodes, one of which is equipped with 
+    \prot\ and the other is not.}
+    \label{fig:tau-eth}
+\end{figure}
+%
+\begin{figure}[t!]
+    \centering
+    \pgfplotsset{footnotesize,height=4.5cm, width=0.55\linewidth}
+    \begin{tikzpicture}
+    \begin{axis}[
+        legend pos=north west,
+        ylabel=Block validation time(ms),
+        xlabel=Block creation-interval ratio,
+        % symbolic x coords={0.011, 0.122, 0.205, 0.260},
+        grid=minor,
+        xtick={0.011, 0.122, 0.139, 0.205, 0.253},
+        ]
+        \addplot table [x=delay, y=avgHonestProcTime, col sep=comma] {data/ethNoSkip.csv};
+        \addplot table [x=delay, y=avgHonestProcTime, col sep=comma] {data/RenoirNoSkip.csv}; 
+ 
+        \addlegendentry{\etr}
+        \addlegendentry{\prot}
+
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Time taken by the node to validate a received block with and without \prot\ for varying block creation-interval ratio.}
+    \label{fig:high-tau-local}
+\end{figure}
+
+% {\bf Reduction in block validation time.}
+% Figure~\ref{fig:tau-eth} illustrates the reduction in block
+% validation time as a result of using \prot\ in \etr\ public
+% network. Specifically, observe that without \prot\ a \etr\ 
+% host node takes ${\sim}200$ milliseconds to validate 
+% a received block, whereas a node equipped with \prot\ only 
+% takes ${\sim}100$ milliseconds, hence, a 50\% reduction
+% in block validation time. 
+% The reduction in block validation time is lower than our 
+% estimated \siml\ of more than 80\%~(\S\ref{sub:findings}), 
+% because the node spends additional time to decide whether
+% to skip a transaction or not. 
+% Similarly, Figure~\ref{fig:high-tau-local} illustrates the 
+% reduction in block validation time we observe on our second 
+% setup (private 50 node network) with varying block
+% creation-interval ratio with 
+% ${\sim}$93\% \siml. In particular, we find that for high
+% block creation-interval ratio, nodes equipped with \prot\ 
+% only spend a tiny fraction of a second to validate received
+% block. On the other hand, nodes equipped with \etr\ takes 
+% over a few seconds to validate the block. 
+
+% \vspace{1mm}
+% \noindent
+% {\bf Mining power utilization.} 
+% A low mining power utilization indicates a high degree of wasted 
+% computation. In Figure~\ref{fig:mpu-system}, we observe that the overall mining power 
+% utilization significantly drops with increase in block creation-arrival ratio, i.e., 
+% with high block creation/validation time. In Figure~\ref{fig:mpu-eth}, we
+% observe that with the increase in block creation-arrival ratio, the mining power 
+% utilization of the first seven nodes in \etr\ drops significantly.
+% Furthermore, this decrease is more for nodes with lower 
+% mining power. 
+% The reason behind this decrease is that, with high block 
+% creation and validation time, blocks take longer to 
+% propagate as nodes only forward those blocks for which it has
+% validated all its ancestor blocks. This results
+% in a high fork rate 
+% % \ub{the work fork is mentioned for the first time here. Needs a sentence in the background to explain what it is}
+% in the network and hence low mining 
+% power utilization. 
+
+% In Figure~\ref{fig:mpu-system} we observe that mining power utilization of the system in \prot\ 
+% remains unaffected even for high block creation-interval ratio of 0.253, unlike \etr.
+% Figure~\ref{fig:mpu-prot} illustrates the mining power 
+% utilization of first seven \prot\ nodes (ordered by mining power) 
+% in our experiment with 93\% \siml. 
+% Unlike \etr, in \prot\
+% % , even for high block creation-interval 
+% % ratio of 0.253, 
+% the mining power utilization of nodes remains 
+% unaffected. This is due the fact that despite high block creation 
+% time, as illustrated in Figure~\ref{fig:high-tau-local} the 
+% block validation time in \prot\ is very small. 
+% %
+% We also evaluate \prot\ by varying the \siml\ and measure its effect on 
+% mining power utilization for block creation-interval ratio of 0.253. 
+% Figure~\ref{fig:mpu-prot-high} illustrates our findings. Observe that even 
+% with 50\% \siml, mining power utilization of nodes are better than
+% mining power utilization of \etr\ at higher block creation-arrival 
+% ratio of 0.205. This illustrate that \prot\ achieves better, mining 
+% power utilization and is robust against variations in \siml. 
+
+% \vspace{1mm}
+% \noindent
+% {\bf Throughput} 
+% Figure~\ref{fig:throughput} illustrates that throughput of the system in \etr\ declines 
+% with the increase in block creation-arrival ratio. On the other hand, we observe that 
+% higher block creation-interval ratio barely affects the throughput of \prot. This is 
+% because of the higher fork rate, as observed in figure~\ref{fig:mpu-system}, 
+% which then delays the extension of the main chain. Note that the increase in block creation-interval ratio in our experiment is a result of the inclusion of the transactions that require more amount of computation, in the blocks and not the increase in the number of transactions. Later will give the scope to increase the throughput further but, at the cost of an increase in block size. 
+
+% the result of including the transactions that require more computation.
+
+% \begin{figure}[t!]
+%     \centering
+%     \pgfplotsset{footnotesize,height=4.5cm, width=0.85\linewidth}
+%     \begin{tikzpicture}
+%     \begin{axis}[
+%         legend pos=north west,
+%         % legend style={font=\fontsize{0.1}{0.2}},
+%         % bar width=4.8pt,
+%         % /pgfplots/ybar=0pt,
+%         % ybar,
+%         % ymin=0,
+%         ymax=1.9,
+%         % xmax=4,
+%         xlabel={Average number of table lookup per transaction},
+%         ylabel= {Number of blocks(normalized)},
+%         % grid=minor,
+%         ] 
+%       \addplot [line width=0.75, mark=*, blue] table [x=tableLookup, y=cumulative, col sep=comma] {data/tableLookUp.csv};
+%         \addplot [line width=0.75, mark=*, red] table [x=tableLookup, y=cumulative, col sep=comma] {data/tableLookUpOurExperiment.csv};
+
+%         \addlegendentry{Table lookup in Ethereum}
+%         \addlegendentry{Table lookup in Renoir experiment}
+%     \end{axis}
+%     \end{tikzpicture}
+    
+%     \caption{Variation of average number of table lookup per transaction per block}
+%     \label{fig:tableLookUpCom}
+% \end{figure}
+
+
+
+
+% \begin{figure}[t!]
+%     \centering
+%     \pgfplotsset{footnotesize,height=4.5cm, width=0.85\linewidth}
+%     \begin{tikzpicture}
+%     \begin{axis}[
+%         legend pos=north west,
+%         % legend style={font=\fontsize{0.1}{0.2}},
+%         % bar width=4.8pt,
+%         % /pgfplots/ybar=0pt,
+%         % ybar,
+%         % ymin=0,
+%         ymax=1.4,
+%         % xmax=4,
+%         xlabel={Dependency},
+%         ylabel= {Number of blocks(normalized)},
+%         % grid=minor,
+%         ] 
+%       \addplot [line width=0.75, mark=triangle ,mark size=1.2pt, blue] table [x=dependency, y=cumulative, col sep=comma] {data/dependencyData.csv};
+
+%         \addlegendentry{Table lookup in Ethereum}
+%         \addlegendentry{Table lookup in Renoir experiment}
+%     \end{axis}
+%     \end{tikzpicture}
+    
+%     \caption{Dependency of transactions inside the block defined as the ratio of number of edges in the conflict graph to the maximum possible edges in the conflict graph ($n(n-1)/2$).}
+%     \label{fig:similarityGraph}
+% \end{figure}
+
+
+% \vspace{1mm}
+% \noindent
+% {\bf Mining power distribution.} 
+% We assign mining power to each node in our 50 node setup in line with the
+% distribution of mining power of the top 50 miners of the real \etr\
+% network~\cite{ethMining}. The top 50 miners (by mining power) contribute to
+% around 99.98\% of total mining power of the real \etr\ network, with the 
+% most powerful miner controlling ${\sim}33\%$ of the total mining power. 
+
+% Assuming block generation follows the Poisson process with rate $\lambda$, 
+% we ensure that each node generates blocks at the rate $\lambda/h$ where 
+% $h$ is mining power assigned to the node. 
+
+% \begin{table}[b!]
+%     \begin{center}
+%         \begin{tabular}{c c c c c c c}
+%         \hline
+%         32.98 & 16.16 & 15.06 & 5.72 & 5.67 & 4.41 & 4.14 \\
+%         3.53 & 2.61 & 1.84 & 1.34 & 1.32 & 1.25 & 1.05 \\
+%         \hline
+%         \end{tabular}
+%     \end{center}
+%     \label{fig:mining fraction}
+%     \caption{Percentage of mining power controlled by top 14
+%     miners in descending order. }
+%     % For 
+%     % e.g. first miner controls $32.98\%$ of the mining power 
+%     % and $14^{\rm th}$ miner controls $1.05\%$ of the mining 
+%     % power. \ub{this is a caption, not a paragraph remove all this - its visible from the data anyway.}}
+%     \label{tab:mining}
+% \end{table}

@@ -1,0 +1,423 @@
+%%
+%% This is file `sample-authordraft.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `authordraft')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-authordraft.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%% The first command in your LaTeX source must be the \documentclass command.
+% \documentclass[sigconf,authordraft]{acmart}
+
+
+%%%% As of March 2017, [siggraph] is no longer used. Please use sigconf (above) for SIGGRAPH conferences.
+
+%%%% As of May 2020, [sigchi] and [sigchi-a] are no longer used. Please use sigconf (above) for SIGCHI conferences.
+
+%%%% Proceedings format for SIGPLAN conferences 
+% \documentclass[sigplan, anonymous, authordraft]{acmart}
+
+%%%% Proceedings format for conferences using one-column small layout
+\documentclass[sigconf]{acmart}
+
+% NOTE that a single column version is required for submission and peer review. This can be done by changing the \doucmentclass[...]{acmart} in this template to 
+% \documentclass[manuscript,screen]{acmart}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+
+\setcopyright{acmcopyright}
+\acmYear{2021}
+\copyrightyear{2021}
+\acmConference{ICPE '21}{April 19-23, 2021}{Rennes, France}
+\acmPrice{TBA}
+\acmDOI{TBA}
+\acmISBN{TBA}
+
+\newtheorem{theorem}{Theorem}
+
+% to be able to draw some self-contained figs
+% \usepackage{tikz}
+
+% inlined bib file
+\usepackage{filecontents}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta,arrows}
+\usepackage{subfigure}
+% \usepackage{subcaption}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{mdwmath}
+\usepackage{mdwtab}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{breqn}
+\usepackage{pgfplots}
+\usepackage{textcomp}
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{paralist}
+
+\interdisplaylinepenalty=2500
+
+\usepackage{dsfont}
+\usetikzlibrary{patterns}
+\usepackage{color,soul}
+
+
+\newcommand{\sd}[1]{\textcolor{teal}{{\bf Sourav:} #1}}
+\newcommand{\vinay}[1]{\textcolor{blue}{{\bf Vinay:} #1}}
+\newcommand{\nitin}[1]{\textcolor{cyan}{{\bf Nitin:} #1}}
+\newcommand{\ub}[1]{\textcolor{red}{{\bf UB:} #1}}
+\newcommand{\todo}[1]{\textcolor{black}{\hl{{\bf Todo:} #1}}}
+
+\newcommand{\vname}{{\sc CCR}}
+\newcommand{\prot}{{\sc Renoir}}
+\newcommand{\upd}{{\sc UpdateTables}}
+\newcommand{\csk}{{\sc CanSkip}}
+\newcommand{\etr}{Ethereum}
+\newcommand{\geth}{{\sf go-ethereum}}
+\newcommand{\parity}{{\sf parity-ethereum}}
+
+
+\newcommand{\nodes}{{\bf N}}
+\newcommand{\cset}{{\bf C}}
+\newcommand{\bcn}{{\bf B}}
+\newcommand{\bt}{{\bf T}}
+\newcommand{\bu}{{\bf U}}
+\newcommand{\bp}{{\bf P}}
+\newcommand{\bs}{{\bf S}}
+\newcommand{\txp}{{\mathbb T}}
+\newcommand{\adv}{${\mathcal{A}}$\xspace}
+
+
+\newcommand{\transValue}{{\sc TransValue}\xspace}
+\newcommand{\versionTable}{{\sc LisValue}\xspace}
+\newcommand{\transValueBold}{{\bf TransValue}\xspace}
+\newcommand{\versionTableBold}{{\bf LisValue}\xspace}
+
+\newcommand{\rs}{{\tt Rd}}
+\newcommand{\ws}{{\tt Wr}}
+\newcommand{\intv}{{\mathbb I}}
+\newcommand{\tx}{{\tt tx}}
+\newcommand{\key}{k}
+\newcommand{\lat}{{\sf latency}}
+\newcommand{\hv}{{\sf headValidTime}}
+\newcommand{\bv}{{\sf blkValidTime}}
+\newcommand{\bc}{{\sf blkCreateTime}}
+\newcommand{\tv}{{\sf txnValidTime}}
+
+\newcommand{\Tr}{{\sf True}}
+\newcommand{\Fl}{{\sf False}}
+
+
+\newcommand{\kt}{{\sf KeyTable}}
+\newcommand{\txt}{{\sf TxTable}}
+\newcommand{\keyList}{{\sf $L_{lis}$}}
+\newcommand{\verList}{{\sf $ver_{lis}$}}
+\newcommand{\var}{{\sf $A$}}
+\newcommand{\keyTrans}{{\sf $L_{trans}$}}
+\newcommand{\verTrans}{{\sf $ver_{trans}$}}
+\newcommand{\hash}{{\sf Hash}}
+\newcommand{\ver}{{\sf ver}}
+\newcommand{\iwt}{{\sf isWrite}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\idx}{{\sf index}}
+\newcommand{\isv}{{\sf isValid}}
+\newcommand{\ste}{{\sf state}}
+\newcommand{\sz}{{\sf sz}}
+\newcommand{\wsq}{{\sf WSQ}}
+
+\newcommand{\tol}{TOL}
+\newcommand{\tcg}{TCG}
+\newcommand{\utx}{unaltered}
+\newcommand{\siml}{similarity}
+\newcommand{\Siml}{Similarity}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+% \setcopyright{acmcopyright}
+% \copyrightyear{2018}
+% \acmYear{2018}
+% \acmDOI{10.1145/1122445.1122456}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+% \acmConference[Woodstock '18]{Woodstock '18: ACM Symposium on Neural
+%   Gaze Detection}{June 03--05, 2018}{Woodstock, NY}
+% \acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%   June 03--05, 2018, Woodstock, NY}
+% \acmPrice{15.00}
+% \acmISBN{978-1-4503-XXXX-X/18/06}
+
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%%\citestyle{acmauthoryear}
+
+% \pagestyle{headings}
+% \pagenumbering{arabic}
+% \setcounter{page}{1}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{\prot: Accelerating Blockchain Validation  using State Caching}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+% \author{Ben Trovato}
+% \authornote{Both authors contributed equally to this research.}
+% \email{trovato@corporation.com}
+% \orcid{1234-5678-9012}
+% \author{G.K.M. Tobin}
+% \authornotemark[1]
+% \email{webmaster@marysville-ohio.com}
+% \affiliation{%
+%   \institution{Institute for Clarity in Documentation}
+%   \streetaddress{P.O. Box 1212}
+%   \city{Dublin}
+%   \state{Ohio}
+%   \postcode{43017-6221}
+% }
+
+% \author{Lars Th{\o}rv{\"a}ld}
+% \affiliation{%
+%   \institution{The Th{\o}rv{\"a}ld Group}
+%   \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+%   \city{Hekla}
+%   \country{Iceland}}
+% \email{larst@affiliation.org}
+
+% \author{Lars Th{\o}rv{\"a}ld}
+% \affiliation{%
+%   \institution{The Th{\o}rv{\"a}ld Group}
+%   \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+%   \city{Hekla}
+%   \country{Iceland}}
+% \email{larst@affiliation.org}
+
+% \author{Valerie B\'eranger}
+% \affiliation{%
+%   \institution{Inria Paris-Rocquencourt}
+%   \city{Rocquencourt}
+%   \country{France}
+% }
+
+% \author{Aparna Patel}
+% \affiliation{%
+%  \institution{Rajiv Gandhi University}
+%  \streetaddress{Rono-Hills}
+%  \city{Doimukh}
+%  \state{Arunachal Pradesh}
+%  \country{India}}
+
+\author{Nitin Awathare}
+\affiliation{%
+  \institution{IIT Bombay}}
+\email{nitina@iitb.ac.in}
+ 
+\author{Sourav Das}
+\affiliation{%
+  \institution{UIUC}}
+\email{souravd2@illinois.edu}
+
+\author{Vinay Joseph Ribeiro}
+\affiliation{%
+  \institution{IIT Bombay}}
+\email{vinayr@iitb.ac.in}
+
+\author{Umesh Bellur}
+\affiliation{%
+  \institution{IIT Bombay}}
+\email{ubellur@iitb.ac.in}
+
+% \author{John Smith}
+% \affiliation{\institution{The Th{\o}rv{\"a}ld Group}}
+% \email{jsmith@affiliation.org}
+
+% \author{Julius P. Kumquat}
+% \affiliation{\institution{The Kumquat Consortium}}
+% \email{jpkumquat@consortium.net}
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Anon.}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+% \vinay{I would structure the abstract as follows: (1) What do current PoW chains do: local block creation using cached transactions (creation phase), PoW (mining phase), validation of received block (validation phase). (2) Problems with long validation phase. (3) What do state of the art solutions do and their shortcomings. (4) We do an extensive measure which shows overlap between transactions in creation and validation. (5) Renoir idea (6) How much Renoir reduces validation time in Ethereum. (7) ?? Benefits of using Renoir in production blockchains -- this is not clear to me. We seem to be avoiding this issue, but the reviewer is likely to wonder if by using Renoir we solve all the problems mentioned in point (2).}
+
+
+
+A Blockchain system such as \etr\ is a peer to peer network where each node works in three phases: {\em creation, mining,} and {\em validation} phases. In the creation phase, it executes a subset of  locally cached transactions to form a new block. In the mining phase, the node solves a cryptographic puzzle (Proof of Work - PoW) on the block it formed. % If it successfully solves the puzzle, it has "mined" a block which it broadcasts and then restarts the creation phase. However, if while solving the PoW puzzle it receives a 
+%a block from another peer, it terminates the mining phase. 
+On receiving a block from another peer, it starts the validation phase, where it executes the transactions in the received block in order to validate it. Since transactions depend on the state that previously executed transactions have created, a node must validate each newly arrived block before creating a new block on top of it.
+%, and then starts the creation phase.
+%process and restart it from the beginning after validating the newly arrived block. Lastly, the node solves a cryptographic puzzle (Proof of Work - PoW) on the block it created - a process termed {\em mining}.  
+%validates a block arriving from another peer by executing the block's transactions and updating the state of smart contracts that these transactions operate on - a process termed {\em block validation}. 
+%A Blockchain system such as \etr\ is a peer to peer network where each node works in three phases: First, it will select and execute a subset of transactions initiated by users to form a new block - a process termed {\em block creation}. Second, the node validates a block arriving from another peer by executing the block's transactions and updating the state of smart contracts that these transactions operate on - a process termed {\em block validation}. 
+% This is a computationally intensive process that slows down the creation of new blocks thereby impacting the throughput of a blockchain network.\nitin{can we remove this sentence?}  
+%The arrival of a block from another peer during block creation causes a node to abandon it's block creation process and restart it from the beginning after validating the newly arrived block. Lastly, the node solves a cryptographic puzzle (Proof of Work - PoW) on the block it created - a process termed {\em mining}.  
+%Since transactions depend on the state that previously executed transactions have created, a node must validate each newly arrived block.
+% (validation builds new state that is needed for executing transactions to be included in the next block). 
+A long block validation time lowers the system's overall throughput and brings the well known Verifier's dilemma 
+% (whether to skip validating the newly arrived block at the risk of accepting invalid block) 
+into play. Additionally, this leads to wasted mining power utilization (MPU).
+
+% \vinay{Earlier, we mentioned other approaches (off-chain, parallel execution) and said ours is a new one. So people will expect us to compare our work with these. I have commented out the sentence about other works. We have to make sure we justify why we do not compare to earlier work somewhere in the paper.}
+%Existing approaches to reducing the validation time either use optimistic parallel execution of transactions or off-chain methods that employ untrusted computational nodes. However, the fact that 
+%A key finding of our paper, 
+%is that nodes re-execute many transactions that have previously been run during block creation has not been exploited. 
+
+
+In this work, we present Renoir a novel mechanism that 
+caches state from transaction execution during the block creation 
+phase and reuses it to enable nodes to skip (re)executing these transactions during block validation. Renoir artifact consists of two parts: First, the extensive measurement from the production Ethereum network to check the extent of redundancy in the transaction execution during block creation and validation phase. Second, Evaluation of Renoir using different metrics(Throughput, Mining Power Utilization and Validation time) on a 50 node testbed mimicking the top 50 Ethereum miners.
+
+% **********************************************************************************
+% Through extensive measurement of 2000 nodes from the production \etr\ network
+%  we find  that during block validation,  nodes {\em redundantly}
+%  execute more than 80\% of the transactions in greater than 
+%  75\% of the blocks they receive - this points to significant potential to save time and computation during block validation. 
+ 
+% Motivated by this, we present \prot, a novel mechanism that caches state from transaction execution during the block creation phase and reuse it to enable nodes to skip (re)executing these transactions during block validation. Nodes on the \etr\ network can incorporate the \prot\ mechanism to speed up validation.
+% % \vinay{We need to rewrite the following. RENOIR is something that can be run on Ethereum. It is not an alternative to Ethereum} 
+% % \ub{Nodes on the \etr\ network can incorporate the \prot\ mechanism to speed up validation.}
+% Our detailed evaluation of \prot\ on a 50 node testbed mimicking the top 50 \etr\ miners illustrates that the reduction in block validation time due to \prot\ is greater than  90\% for blocks with computationally intensive transactions. Such blocks reduce the throughput and MPU of \etr\ but, barely has any effect in case of \prot. Specifically, the inclusion of computationally intensive transactions, reduces the throughput of \etr\ from 35326 tx/hour to 24716 tx/hour and MPU from 96\% to 67\%. Furthermore, to measure the gains with our system on the production
+% \etr\ network, we deploy a node running \prot\ on the production
+% \etr\ network. Our measurement illustrates that \prot\ reduces
+% the block validation time by as much as 50\%. 
+% ************************************************************************************
+% \vinay{is it true for ALL blockchains? Maybe we need to limit the scope to "PoW blockchains such as Bitcoin and Ethereum".} 
+
+% blockchain network executes the transactions of each received block to ensure that they are valid and to update the state of smart contracts impacted by the transactions - a computationally intensive process \vinay{why is it intensive? Current Bitcoin and Ethereum have very short validation times. So how is it intensive?} termed Block Validation.  High block validation time lowers the overall throughput of the system and brings the Verifier's dilemma into play.  And further, as we prove, this leads to wasted mining power utilization.
+    
+% Existing approaches to reducing the validation time either use optimistic parallel execution of transactions or off-chain methods that employ untrusted computational nodes. \vinay{It is not clear that block creation happens before block validation.} However, the fact that a node executes many of the same transactions as a part of the block creation and block validation process has not been exploited. 
+%     %  \vinay{Does not \prot\ also need some additional resources and is more likely to fail due to dependencies across transactions? If so, we need a better way to contrast our method to the earlier work} However these techniques have limited scalability and 
+%      % require extra-trust assumptions between nodes.
+%     %  are likely to fail in the presence of dependency across 
+%     %  transactions in a block.
+%      Our  monitoring of approximately 2000 nodes from the production \etr\ network
+%      illustrates that during block validation, nodes redundantly
+%      execute more than 80\% of the transactions in more than 
+%      75\% of the  blocks - this points to significant potential in savings the block validation time. 
+%     %  \etr\ nodes re-execute more than 75\% of the total transactions
+%     %  from the block creation period. 
+%      Motivated by this, we present
+%      \prot, a novel mechanism that caches state variables and the accessed version of it from the block creation phase to enable nodes
+%      to skip (re)executing these transactions during block validation. 
+%      %We corroborate the design of \prot\ with a formal theoretical proof of its correctness. 
+%     %  \ub{What is the subtelity of the \prot mechanism? What's clever about this?}
+%      In order to measure the
+%      gains with our system, we deploy a node running \prot\ on the production
+%      \etr\ network. Our measurement illustrates that \prot\ reduces
+%      the block validation time by 50\%. Our detailed evaluation of
+%      \prot\ atop a 50 node test bed mimicking the top 50 \etr\ miners, \vinay{why is top 50 miners good? what percentage of hashing power do they have?}
+%     %  \vinay{is the mining pool term correct? If not, remove it}
+%      illustrates that 
+%     %  with increasing block validation, 
+%      the reduction
+%      in block validation time due to \prot\ is greater than
+%     %  \vinay{Is it always 90 percent? If not, under what conditions is it so high?} 
+%      90\% for 
+%      blocks with computationally intensive transactions - blocks with high validation time.\vinay{It is not clear what the actual benefits are if a) only a single miner uses Renoir (either in current Renoir or in the CIT sceanario) -- will that miner create more fraction of blocks compared to if it did not use Renoir, (b) if ALL miners use Renoir -- will the transaction throughput or gas limit go up?}
+\end{abstract}
+
+
+% \maketitle
+% \input{sections/artifact}
+% \input{sections/introduction}
+% \input{sections/background}
+% \input{sections/casestudy}
+% % \input{sections/overview}
+% \input{sections/design}
+% \input{sections/analysis}
+\input{sections/evaluation}
+% \input{sections/related}
+% \input{sections/discussion}
+
+% \begin{acks}
+% To Robert, for the bagels and explaining CMYK and color spaces.
+% \end{acks}
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+% \bibliographystyle{ACM-Reference-Format}
+% \bibliography{sample-base}
+
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-authordraft.tex'.
+
