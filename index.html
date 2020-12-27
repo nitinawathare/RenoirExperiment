@@ -316,24 +316,25 @@ sh runExperiment.sh<br>
 <p>
 
 <h1>Draw the figure from existing data-set</h1>
-<!-- <font size="4"
-          color="rgb(93, 10, 19)"> --> 
-          
+     
 <p>----------------------------------------------------------------------------------------<br><br>
-cd RenoirExperiment
-cd script
+sudo apt-get install libgnome2-bin
+cd RenoirExperiment<br>
+git checkout artifact<br>
+cd script<br>
+sh runScripts.sh<br>
+mv data ../graph/<br>
+cd ../graph<br><br>
 
 
-</font>
+<font size="3"
+          color="rgb(193, 10, 19)"> 
+Please note, pdflatex package should be installed on the machine to run this.
+</font><br><br>
+make clean<br>
+make<br>
+gnome-open main.pdf<br>
+
+
 </body>
 </html> 
-
-
-
-
-
-
-
-
-
-
