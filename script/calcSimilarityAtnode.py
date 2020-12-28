@@ -50,7 +50,7 @@ def main(path):
 			if data[0]=="" or data[1]=="" or data[2]=="" or data[3]=="":
 				continue
 
-			if int(data[0]) not in range(8669465, 8669467):
+			if int(data[0]) not in range(8669465, 8669567):
 				continue
 
 			previousBlockNumber = data[0]
@@ -58,31 +58,37 @@ def main(path):
 			# utc_time = datetime.strptime(data[2]+" "+data[3][:-3], "%Y-%m-%d %H:%M:%S.%f")
 			epoch_time = data[2]#(utc_time - datetime(1970, 1, 1)).total_seconds()
 
-			peerTxPath = path+"/transactions/transactionInfo_"+data[3].rstrip().replace("/","_")
-			# print(peerTxPath)
+			for filename in os.listdir(path+"/transactions/"):
+				# print(filename)
 
-			if os.path.exists(peerTxPath) == False:
-				continue
-			with open(peerTxPath) as fBlock:
-				for tx in fBlock:
-					if tx == '':
-						break
-					data1 = tx.split(' ')
-					
-					if "+" in data1[0] or "+" in data1[1] or "+" in data1[2]:
-						continue
-					if "x" in data1[1] or "x" in data1[2]:
-						continue
-					if data1[0]=="" or data1[1]=="" or data1[2]=="":
-						continue
-					epoch_time1 = data1[1]
-					if epoch_time1 <= epoch_time:
-						# print("going in if")
-						transactionList.append(data1[0])
-						transactionDict[data1[0]] = epoch_time1
-					else:
-						# txReceivedFp.seek(last_pos)
-						break
+				peerTxPath = path+"/transactions/"+filename
+				# print(peerTxPath)
+
+				if os.path.exists(peerTxPath) == False:
+					continue
+				with open(peerTxPath) as fBlock:
+					for tx in fBlock:
+						if tx == '':
+							break
+						data1 = tx.split(' ')
+						
+						if len(data1)<3:
+							continue
+						if "+" in data1[0] or "+" in data1[1] or "+" in data1[2]:
+							continue
+						if "x" in data1[1] or "x" in data1[2]:
+							continue
+						if data1[0]=="" or data1[1]=="" or data1[2]=="":
+							continue
+						epoch_time1 = data1[1]
+						if epoch_time1 <= epoch_time:
+							# print("going in if")
+							# if data1[0] not in transactionList:
+							transactionList.append(data1[0])
+							transactionDict[data1[0]] = epoch_time1
+						else:
+							# txReceivedFp.seek(last_pos)
+							break
 
 
 			# print(data[3])
@@ -158,7 +164,7 @@ def main(path):
 
 		cumulativeValue = 0
 		for i in sorted (probabilityDict) :
-			fileObj.write(str(i)+" "+str(probabilityDict[i])+" "+str(round(cumulativeValue+probabilityDict[i],3))+"\n")
+			# fileObj.write(str(i)+" "+str(probabilityDict[i])+" "+str(round(cumulativeValue+probabilityDict[i],3))+"\n")
 			print(str(i)+" "+str(probabilityDict[i])+" "+str(round(cumulativeValue+probabilityDict[i],3))+"\n")
 			cumulativeValue += probabilityDict[i]
 		
